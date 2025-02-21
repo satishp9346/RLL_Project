@@ -1,0 +1,86 @@
+<div class="property_card p-5 bg-body-tertiary">
+    <div class="card mx-5 px-5 py-4">
+        <h3 class="price-tag">₹{{ selectedProperty.price }}</h3>
+        <p class="property-title pb-2">{{ selectedProperty.type }}</p>
+
+        <div class="row">
+            <!-- Image Grid -->
+            <div class="col-md-5">
+                <div class="row g-2">
+                    <div class="col-6 pe-1">
+                        <img [src]="selectedProperty.images[0]" class="img-fluid rounded h-100" alt="Property Image">
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <img [src]="selectedProperty.images[1]" class="img-fluid rounded mb-1" alt="Property Image">
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-6 pe-1">
+                                <img [src]="selectedProperty.images[2]" class="img-fluid rounded" alt="Property Image">
+                            </div>
+                            <div class="col-6">
+                                <img [src]="selectedProperty.images[3]" class="img-fluid rounded" alt="Property Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Details -->
+            <div class="col-md-7 px-4">
+                <div class="property-icons">
+                    <span><i class="fas fa-bed"></i> {{ selectedProperty.type }}</span>
+                    <span><i class="fas fa-bath"></i> {{ selectedProperty.baths }} Baths</span>
+                    <span><i class="fas fa-couch"></i> {{ selectedProperty.furnishing }}</span>
+                    <span><i class="fas fa-building"></i> {{ selectedProperty.balconies }} Balconies</span>
+                </div>
+
+                <div class="row py-4">
+                    <div class="col-4 property-data py-3" *ngFor="let detail of loopData.slice(0,7)">
+                        <p>{{ detail.label }}</p>
+                        <h3>{{ detail.value }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-3">
+            <button class="btn btn-primary btn-custom" (click)="openChat()">
+                <i class="bi bi-chat"></i> Chat with Property Manager
+            </button>
+            <button class="btn btn-secondary btn-custom ms-4" (click)="openImagePopup()">
+                <i class="bi bi-images"></i> View All Images
+            </button>
+        </div>
+    </div>
+
+    <!-- Chat Box Component -->
+    <app-chat-box *ngIf="showChatBox" (closeChat)="closeChat()"></app-chat-box>
+
+    <!-- Image Popup Component -->
+    <app-image-popup 
+    *ngIf="showImagePopup" 
+    [showImagePopup]="showImagePopup"
+    [imageList]="selectedProperty.images"
+    [currentImageIndex]="currentImageIndex"
+    (closePopup)="closeImagePopup()">
+    </app-image-popup>
+
+
+
+    <div class="card mx-5 px-5">
+        <div class="more-details">
+            <h1 class="fs-2 pb-4">More Details</h1>
+            <table>
+                <tr *ngFor="let detail of loopData.slice(7)">
+                    <td>{{ detail.label }}</td>
+                    <th>{{ detail.value }}</th>
+                </tr>
+            </table>
+
+            <h4>Description:</h4>
+            <p class="pt-3">{{ selectedProperty.description }}</p>
+        </div>
+    </div>
+</div>

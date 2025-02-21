@@ -1,0 +1,284 @@
+<div class="image">
+    <div class="main">
+      <h2>Plot Details</h2>
+      <form [formGroup]="plotForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="form-container">
+  
+            <div class="input-group">
+              <label>carpetArea</label>
+              <input type="text" formControlName="carpetArea" placeholder="Enter carpetArea" required>
+              <div *ngIf="formControls['carpetArea'].touched && formControls['carpetArea'].invalid">
+                <small class="error">Carpet Area is required.</small>
+              </div>
+            </div>
+  
+            <div class="input-group">
+              <label> Construction Status</label>
+              <select id="Status" name="Status" formControlName="status">
+                <option value="">status</option>
+                <option value="ready">Ready To Move</option>
+                <option value="under">Under Construction</option>
+              </select>
+              <div *ngIf="formControls['status'].touched && formControls['status'].invalid">
+                <small class="error">Status is required.</small>
+              </div>
+            </div>
+  
+            <div class="input-group">
+              <label>Boundary Walls</label>
+              <select id="wall" name="wall" formControlName="boundaryWalls">
+                <option value="">Boundary Wall</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              <div *ngIf="formControls['boundaryWalls'].touched && formControls['boundaryWalls'].invalid">
+                <small class="error">Boundary wall is required</small>
+              </div>
+            </div>
+  
+            <div class="input-group">
+              <label>OverLooking</label>
+              <input type="text" formControlName="overlooking" placeholder="Enter Over Look" required>
+              <div *ngIf="formControls['overlooking'].touched && formControls['overlooking'].invalid">
+                <small class="error">Over Looking is required.</small>
+              </div>
+            </div>
+  
+            <div class="input-group">
+              <label>Facing</label>
+              <select id="rooms" name="facing" formControlName="facing">
+                <option value="">Facing</option>
+                <option value="north">North</option>
+                <option value="south">South</option>
+                <option value="east">East</option>
+                <option value="West">West</option>
+              </select>
+              <div *ngIf="formControls['facing'].touched && formControls['facing'].invalid">
+                <small class="error">Facing should be provided3</small>
+              </div>
+            </div>
+  
+            <div class="input-group">
+              <label>Developer</label>
+              <input type="text" formControlName="developer" placeholder="Enter Developer" />
+              <div *ngIf="formControls['developer'].touched && formControls['developer'].invalid">
+                <small class="error">Developer name is required.</small>
+              </div>
+            </div>
+  
+            <div class="input-group">
+              <label>Registration Charges</label>
+              <input type="number" placeholder="Registration Charges" formControlName="registrationCharges" required />
+              <div *ngIf="formControls['registrationCharges'].touched && formControls['registrationCharges'].invalid">
+                <small class="error">Registration Charges required.</small>
+              </div>
+            </div>
+  
+  
+            <div class="input-group">
+              <label>Price </label>
+              <input type="number" placeholder="Enter price" formControlName="price" required />
+              <div *ngIf="plotForm.controls['price'].touched && plotForm.controls['price'].invalid">
+                <small class="error">Price is required and should be in the form Amount.</small>
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="form-container">
+  
+            <div class="input-group">
+              <label>Transcation Type</label>
+              <select id="transcation" name="transcation" formControlName="transactionType">
+                <option value="">Transcation</option>
+                <option value="resale">Reselled</option>
+                <option value="new property">New property</option>
+                <option value="under construction">Under construction</option>
+                <option value="ready to move">Ready to move</option>
+              </select>
+              <div *ngIf="formControls['transactionType'].touched && formControls['transactionType'].invalid">
+                <small class="error">Transcation Type is required</small>
+              </div>
+            </div>
+  
+            <div class="input-group">
+              <label>Booking Amount</label>
+              <input type="number" placeholder="Enter Booking Amount" formControlName="bookingAmount" required />
+              <div *ngIf="formControls['bookingAmount'].touched && formControls['bookingAmount'].invalid">
+                <small class="error">Booking Amount is required.</small>
+              </div>
+            </div>
+  
+            <div class="input-group">
+              <label>Floors Allowed</label>
+              <input type="number" formControlName="floorsAllowed" placeholder="Enter Floor" required />
+              <div *ngIf="formControls['floorsAllowed'].touched && formControls['floorsAllowed'].invalid">
+                <small class="error" *ngIf="formControls['floorsAllowed'].hasError('required')">Floor is
+                  required.</small>
+                <small class="error" *ngIf="formControls['floorsAllowed'].hasError('pattern')">Floors
+                  must be a number.</small>
+              </div>
+  
+            </div>
+  
+            <div class="input-group">
+              <label>Authority Approval</label>
+              <input type="text" placeholder="Enter approval details" formControlName="authorityApproval" required />
+              <div *ngIf="formControls['authorityApproval'].touched && formControls['authorityApproval'].invalid">
+                <small class="error">Authority Approval details are required.</small>
+              </div>
+            </div>
+  
+            <div class="input-group">
+              <label>No of open Sides</label>
+              <input type="number" placeholder="Enter No of open sides" formControlName="noOfOpenSides" required />
+              <div *ngIf="formControls['noOfOpenSides'].touched && formControls['noOfOpenSides'].invalid">
+                <small class="error" *ngIf="formControls['noOfOpenSides'].hasError('required')">Open sides is
+                  required.</small>
+                <small class="error" *ngIf="formControls['noOfOpenSides'].hasError('pattern')">Open Sides
+                  must be a number.</small>
+              </div>
+            </div>
+  
+  
+            <div class="input-group">
+              <label>Description</label>
+  
+              <textarea formControlName="description">Description</textarea>
+              <div *ngIf="formControls['description'].touched && formControls['description'].invalid">
+                <small class="error">Description is required.</small>
+              </div>
+            </div>
+  
+            <div class="input-group">
+              <label>Plot Image</label>
+              <input type="file" id="imageInput" name="images" accept="image/*" multiple formControlName="images">
+              <div *ngIf="formControls['images'].touched && formControls['images'].invalid">
+                <small class="error">Plot Image is required.</small>
+              </div>
+            </div>
+  
+          </div>
+  
+           
+  
+            
+  
+  
+  
+  
+          <div class=" address ">
+            <div class="form-floating mb-3">
+  
+              <div> <label for="address"><i class="bi bi-geo-alt me-2"></i>Address</label></div>
+  
+              <div class="row g-4 mb-4">
+                <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="Door" formControlName="door" placeholder="Door">
+                    <label><i class="bi bi-door-open"></i>Door No</label>
+                    <div *ngIf="formControls['door'].touched && formControls['street'].invalid">
+                      <small class="error">Provide Door Number</small>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="street" formControlName="street" placeholder="street">
+                    <label><i class="bi bi-person me-2"></i>Street</label>
+                    <div *ngIf="formControls['street'].touched && formControls['street'].invalid">
+                      <small class="error">Provide street Number</small>
+                    </div>
+                  </div>
+                </div>
+  
+  
+                <div class="col-md-3">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" id="Village" formControlName="village"
+                      placeholder="village Name">
+                    <label><i class="bi bi-person me-2"></i>Village</label>
+                    <div *ngIf="formControls['village'].touched && formControls['village'].invalid">
+                      <small class="error">Provide village Name</small>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+  
+  
+              <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                  <div class="form-floating">
+                    <select id="District" name="district" class="form-control" formControlName="district">
+                      <option value="">Districts</option>
+                      <option value="Amarvati">Amarvati</option>
+                      <option value="Banguluru">Banguluru</option>
+                      <option value="Hyderbad">Hyderabad</option>
+                      <option value="Chennai">Chennai</option>
+                      <option value="Pune">Pune</option>
+                      <option value="shimala">Shimala</option>
+                    </select>
+                    <div *ngIf="formControls['district'].touched && formControls['district'].invalid">
+                      <small class="error">Provide District Name</small>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-4">
+                  <div class="form-floating">
+                    <select id="state" name="state" class="form-control" formControlName="state">
+                      <option value="">State</option>
+                      <option value="Ap">Andhra Pradesh</option>
+                      <option value="Ka">Karnataka</option>
+                      <option value="Ts">Telangana</option>
+                      <option value="Tn">TamilNadu</option>
+                      <option value="Mh">Maharastra</option>
+                      <option value="Hp">Himachal Pradesh</option>
+                    </select>
+                    <div *ngIf="formControls['state'].touched && formControls['state'].invalid">
+                      <small class="error">Provide State Name</small>
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="col-md-4">
+                  <div class="form-floating">
+                    <select id="country" name="country" class="form-control" formControlName="country">
+                      <option value="">Country</option>
+                      <option value="India">India</option>
+                    </select>
+                    <div *ngIf="formControls['country'].touched && formControls['country'].invalid">
+                      <small class="error">Provide Country Name</small>
+                    </div>
+                  </div>
+                </div>
+  
+  
+                <div class="col-md-3">
+                  <div class="form-floating">
+                    <label><i class="bi bi-person me-2"></i>Pincode</label>
+                    <input type="text" class="form-control" id="pincode" formControlName="pincode" placeholder="pincode">
+  
+                    <div *ngIf="formControls['pincode'].touched && formControls['pincode'].invalid">
+                      <small class="error" *ngIf="formControls['pincode'].hasError('required')">Pincode is
+                        required.</small>
+                      <small class="error" *ngIf="formControls['pincode'].hasError('pattern')">Pincode
+                        must be a number.</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-danger mr-5 ">Property Manager</button>
+            <button type="submit" class="btn btn-success">Submit Details</button>
+          </div>
+  
+        </div>
+      </form>
+    </div>
+  </div>

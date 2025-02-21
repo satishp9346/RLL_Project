@@ -1,0 +1,185 @@
+<div class="sidebar" [class.open]="true">
+    <div class="sidebar-header">
+        <h5><i class="bi bi-person-circle mx-2"></i>Profile</h5>
+    </div>
+    <div class="sidebar-content">
+        <h5>First Name</h5>
+        <p>{{profile.userCommonDetails.firstName}}</p>
+        <h5>Last Name</h5>
+        <p>{{profile.userCommonDetails.lastName}}</p>
+        <h5>Email Id</h5>
+        <p>{{profile.user.email}}</p>
+        <h5>Contact Number</h5>
+        <p>{{profile.userCommonDetails.mobileNo}}</p>
+
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
+            <i class="fas fa-save"></i> Update
+        </button>
+    </div>
+
+
+</div>
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLabel">Update Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                        class="fas fa-times"></i></button>
+            </div>
+
+            <!-- Main Container -->
+            <div class="modal-body justify-content-center">
+                <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+                    <div class="form-fields">
+                        <!-- Name Group -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6" *ngFor="let field of ['firstName','lastName']">
+                                <div class="form-floating"> 
+                                    <input type="text" class="form-control" [id]="field"
+                                        [formControlName]="field" [placeholder]="field"
+
+                                        [class.is-invalid]="f[field].errors && f[field].touched"> <label
+                                        [for]="field"><i class="bi bi-person me-2"></i>{{ field | titlecase }}</label>
+                                    <div class="invalid-feedback">{{ getErrorMessage(field) |titlecase }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" formControlName="email"
+                                placeholder="Email" [class.is-invalid]="f['email'].errors && f['email'].touched">
+                            <label for="email"><i class="bi bi-envelope me-2"></i>Email</label>
+                            <div class="invalid-feedback">{{ getErrorMessage('email')|titlecase }}</div>
+                        </div>
+
+                        <!-- Contact Group -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" id="gender" formControlName="gender"
+                                        [class.is-invalid]="f['gender'].errors && f['gender'].touched">
+                                        <option value="">Select Gender</option>
+                                        <option *ngFor="let gender of ['male', 'female', 'other']" [value]="gender">{{
+                                            gender }}</option>
+                                    </select>
+                                    <label for="gender"><i class="bi bi-gender-ambiguous me-2"></i>Gender</label>
+                                    <div class="invalid-feedback">{{ getErrorMessage('gender')|titlecase }}</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="number" class="form-control" id="age" formControlName="age"
+                                        placeholder="Age" [class.is-invalid]="f['age'].errors && f['age'].touched"
+                                        min="18" max="99">
+                                    <label for="age">Age</label>
+                                    <div class="invalid-feedback">
+                                        <ng-container *ngIf="f['age'].hasError('required')">
+                                            Age is required.
+                                        </ng-container>
+                                        <ng-container *ngIf="f['age'].hasError('min')">
+                                            Age must be at least 18.
+                                        </ng-container>
+                                        <ng-container *ngIf="f['age'].hasError('max')">
+                                            Age cannot exceed 99.
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-floating mb-3">
+                            <input type="tel" class="form-control" id="phoneNumber" formControlName="phoneNumber"
+                                placeholder="Phone Number"
+                                [class.is-invalid]="f['phoneNumber'].errors && f['phoneNumber'].touched">
+                            <label for="phoneNumber"><i class="bi bi-telephone me-2"></i>Phone Number</label>
+                            <div class="invalid-feedback">{{ getErrorMessage('phoneNumber')|titlecase }}</div>
+                        </div>
+                        <!-- Password -->
+                        <div class="form-floating mb-3 position-relative">
+                            <input [type]="hidePassword ? 'password' : 'text'" class="form-control" id="password"
+                                formControlName="password" placeholder="Password"
+                                [class.is-invalid]="f['password'].errors && f['password'].touched">
+                            <label for="password"><i class="bi bi-lock me-2"></i>Password</label>
+                            <button class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-3"
+                                type="button" (click)="hidePassword = !hidePassword">
+                                <i class="bi" [ngClass]="{'bi-eye': hidePassword, 'bi-eye-slash': !hidePassword}"></i>
+                            </button>
+                            <div class="invalid-feedback">{{ getErrorMessage('password') }}</div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="form-floating mb-3">
+                            <div class="d-flex align-item-center"><i class="bi bi-geo-alt fs-4"></i>
+                                <h4 class="pt-1">Address</h4>
+                            </div>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-4" *ngFor="let addr of ['doorNo', 'street', 'city']">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" [id]="addr" [formControlName]="addr"
+                                            [placeholder]="addr" [class.is-invalid]="f[addr].errors && f[addr].touched">
+                                        <label [for]="addr">{{ addr | titlecase }}</label>
+                                    </div>
+                                    <div class="invalid-feedback">{{ getErrorMessage(addr) |titlecase}}</div>
+                                </div>
+                            </div>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6" *ngFor="let location of ['district', 'state']">
+                                    <div class="form-floating">
+                                        <select [id]="location" [formControlName]="location" class="form-control">
+                                            <option value="">Select {{ location | titlecase }}</option>
+                                            <option *ngFor="let option of getLocationOptions(location)"
+                                                [value]="option">{{ option }}</option>
+                                        </select>
+                                        <label [for]="location">{{ location | titlecase }}</label>
+                                    </div>
+                                    <div class="invalid-feedback">{{ getErrorMessage(location)|titlecase }}</div>
+                                </div>
+                            </div>
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="pinCode"
+                                            [formControlName]="'pinCode'" placeholder="pinCode"
+                                            [class.is-invalid]="f['pinCode'].errors && f['pinCode'].touched">
+                                        <label for="pinCode">Pin Code</label>
+                                    </div>
+                                    <div class="invalid-feedback">{{ getErrorMessage('pinCode') |titlecase}}</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select id="country" [formControlName]="'country'" class="form-control">
+                                            <option value="">Select Country</option>
+                                            <option *ngFor="let option of getLocationOptions('country')"
+                                                [value]="option">{{ option }}</option>
+                                        </select>
+                                        <label for="country">Country</label>
+                                    </div>
+                                    <div class="invalid-feedback">{{ getErrorMessage("country")|titlecase }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary signup-button"
+                            [disabled]="profileForm.invalid || loading">
+                            <span *ngIf="!loading">Update Details</span>
+                            <div *ngIf="loading" class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
+
+                        <!-- <button type="">Submint</button> -->
+                    </div>
+                    <!-- Error Message -->
+                    <div *ngIf="errorMessage" class="alert alert-danger mx-4 mb-4">
+                        <i class="bi bi-exclamation-circle me-2"></i>{{ errorMessage }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

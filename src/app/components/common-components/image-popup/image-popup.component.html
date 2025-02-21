@@ -1,0 +1,11 @@
+<!-- Image Popup Carousel -->
+<div *ngIf="showImagePopup" class="image-popup">
+    <div class="carousel-container">
+        <button (click)="prevImage()" class="carousel-btn prev-btn mx-3">Prev</button>
+        <div class="carousel-images">
+            <img [src]="imageList[currentImageIndex]" alt="Image">
+        </div>
+        <button (click)="nextImage()" class="carousel-btn next-btn mx-3">Next</button>
+    </div>
+    <button (click)="close()" class="close-popup-btn">Close</button>
+</div>

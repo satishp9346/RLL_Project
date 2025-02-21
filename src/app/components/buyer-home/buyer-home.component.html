@@ -1,0 +1,42 @@
+
+<!-- Container Section -->
+<div class="container mt-4">
+    <h3 class="text-center mb-4">Available Properties</h3>
+    <div class="row g-4">
+        <!-- Flats in Apartments -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg" class="card-img-top" alt="Flats in Apartments">
+                <div class="card-body">
+                    <h5 class="card-title">Flats in Apartments</h5>
+                    <p class="card-text">Find modern apartments with great amenities.</p>
+                    <button (click)="viewPropertList('/dashboard/buyer/apartments','apartmentsListData')" class="btn btn-primary">View Flats in Apartments</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plots Slide -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg" class="card-img-top" alt="Plots">
+                <div class="card-body">
+                    <h5 class="card-title">Plots</h5>
+                    <p class="card-text">Explore open land plots for construction.</p>
+                    <button (click)="viewPropertList('dashboard/buyer/plots','plotsData')" class="btn btn-primary">View More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Individual Houses / Villas -->
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg" class="card-img-top" alt="Villas">
+                <div class="card-body">
+                    <h5 class="card-title">Individual Houses / Villas</h5>
+                    <p class="card-text">Luxury villas and independent houses for sale.</p>
+                    <button (click)="viewPropertList('/dashboard/buyer/individual_houses','villasData')" class="btn btn-primary">View More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+/* Image Popup */
+.image-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 80%;
+    height: 80%;
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.carousel-images img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-btn {
+    background-color: transparent;
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.prev-btn {
+    margin-left: 20px;
+}
+
+.next-btn {
+    margin-right: 20px;
+}
+
+.close-popup-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+    color: white;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}

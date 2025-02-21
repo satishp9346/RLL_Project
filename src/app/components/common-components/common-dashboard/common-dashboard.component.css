@@ -1,0 +1,124 @@
+body {
+    background: #0a192f;
+    color: #fff;
+  }
+  
+  /* Navbar */
+  .navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .hero-section {
+    position: relative;
+    height: 600px;
+    margin: 0 100px;
+    margin-bottom: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: powderblue;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease;
+  }
+  
+  /* Overlay */
+  .hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  
+  /* Overlay */
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  }
+  
+  /* Ensure content is above overlay */
+  .hero-section > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  /* Property Gallery */
+  .gallery-section {
+    background: #0a192f;
+  }
+  
+  .gallery-section img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .gallery-section img:hover {
+    transform: scale(1.012);
+  }
+  
+  /* More Properties */
+  .more-properties {
+    background: #d6edf6;
+    color: #000;
+  }
+  
+  .card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* Footer */
+  .footer {
+    background: #000;
+  }
+
+  .h1{
+    
+    /* font-style: oblique; */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px; 
+    font-weight: bold;
+    color: #2d3c50; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    padding: 20px;
+    border-radius: 10px;
+  
+
+ 
+  }
+  

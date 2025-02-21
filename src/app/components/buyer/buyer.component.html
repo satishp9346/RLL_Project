@@ -1,0 +1,34 @@
+ <!-- Header -->
+ <header class="bg-primary text-white text-center py-3">
+    <h2>Real Estate Management</h2>
+</header>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" routerLink="/dashboard/buyer">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Buyed/Bought</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Property Managers</a></li>
+                <li class="nav-item">
+                    <button class="btn btn-profile text-white" (click)="toggleSidebar()">
+                        <i class="fas fa-user-circle"></i>
+                        {{ profile.userCommonDetails.firstName || 'Profile' }}
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+ <!-- Sidebar Profile -->
+ <app-profile [profile]="profile" [hidden]="isSidebarOpen" ></app-profile>
+  
+<div>
+    <router-outlet></router-outlet>
+</div>

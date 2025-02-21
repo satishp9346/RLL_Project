@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+.image1{
+    background-image: url("../../../assets/images/v1.jpg");
+    background-size: cover;
+    width:100%;
+    height:auto;
+}
+ 
+body {
+    background: linear-gradient(135deg,
+        #F0F7FF 0%,
+        #F5F3FF 25%,
+        #FDF4FF 50%,
+        #FFF1F2 75%,
+        #F0FAFB 100%
+    );
+    color: #1e293b;
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+}
+ 
+/* Enhanced background patterns */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 100% 0%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 0% 100%, rgba(167, 139, 250, 0.08) 0%, transparent 50%);
+    z-index: -1;
+}
+ 
+.main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+}
+ 
+.navbar {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: 1.25rem;
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow:
+        0 4px 20px rgba(148, 163, 184, 0.12),
+        0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+ 
+.navbar h4 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-right: auto;
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+ 
+select {
+    padding: 0.875rem 1.75rem;
+    border: 2px solid rgba(148, 163, 184, 0.25);
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    font-size: 0.925rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 160px;
+    color: #4B5563;
+}
+ 
+select:hover {
+    border-color: #6366F1;
+    transform: translateY(-1px);
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+}
+ 
+select:focus {
+    outline: none;
+    border-color: #6366F1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+ 
+.welcome-text {
+    font-size: 1.25rem;
+    color: #f02906;
+    margin-bottom: 1.75rem;
+    font-weight: 500;
+}
+ 
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+ 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+}
+ 
+.form-container {
+    background: rgba(255, 255, 255, 0.568);
+    padding: 3rem;
+    border-radius: 1.25rem;
+    box-shadow:
+        0 10px 30px rgba(148, 163, 184, 0.12),
+        0 0 0 1px rgba(255, 255, 255, 0.9);
+    flex: 1;
+    min-width: 350px;
+    max-width: 600px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(12px);
+}
+ 
+.form-container:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 20px 40px rgba(148, 163, 184, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.95);
+}
+ 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+ 
+.input-group {
+    position: relative;
+}
+ 
+label {
+    font-size: 0.925rem;
+    font-weight: 600;
+    color: #4F46E5;
+    margin-bottom: 0.625rem;
+    display: block;
+}
+ 
+input ,select,textarea{
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid rgba(148, 163, 184, 0.25);
+    border-radius: 1rem;
+    font-size: 0.925rem;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #4B5563;
+}
+ 
+input:hover {
+    background-color: #ffffff;
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+}
+ 
+input:focus {
+    outline: none;
+    border-color: #6366F1;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+ 
+input[type="file"] {
+    padding: 0.875rem;
+    border: 2px dashed rgba(148, 163, 184, 0.25);
+    background-color: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+}
+ 
+input[type="file"]:hover {
+    border-color: #6366F1;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+}
+ 
+.btn {
+    padding: 1.125rem 3.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 2.5rem;
+}
+ 
+.btn-success {
+    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+}
+ 
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.35);
+    background: linear-gradient(135deg, #4338CA 0%, #6D28D9 100%);
+}
+ 
+.btn-success:active {
+    transform: translateY(0);
+}
+ 
+@media (max-width: 768px) {
+    .main {
+        padding: 1rem;
+    }
+   
+    .navbar {
+        flex-direction: column;
+        padding: 1.25rem;
+    }
+   
+    .form-container {
+        padding: 2rem;
+        min-width: 100%;
+    }
+   
+    .btn {
+        width: 100%;
+    }
+   
+    h2 {
+        font-size: 2rem;
+    }
+}
+/* app.component.css */
+.error {
+    color: red;
+    font-size: 12px;
+  }
+ 
+  input.ng-invalid.ng-touched {
+    border-color: red;
+  }
+  .address {
+    background-color: rgba(255, 255, 255, 0.568);
+    border-radius: 12px;
+    width:50%;
+ 
+  }
