@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PropertyManagerRequestsService } from 'src/app/services/property_manager_request_service/property-manger-requests-service.service';
 interface UserProfile {
   name: string;
   email: string;
@@ -106,7 +107,7 @@ export class PropertyManagerComponent {
 
   profile:any={};
 
-  constructor(private r:Router) {
+  constructor(private r:Router,private propertyManagerRequestService:PropertyManagerRequestsService) {
     this.profile =JSON.parse(sessionStorage.getItem("profile"));
     console.log(this.profile);
     this.filteredRequests = this.requests;
@@ -114,8 +115,10 @@ export class PropertyManagerComponent {
   propertyRequest:any;
 
   ngOnInit() {
-    this.propertyRequest=JSON.parse(localStorage.getItem("property"));
-    console.log("data in property manager==>"+JSON.stringify(this.propertyRequest));
+    // this.propertyRequest=JSON.parse(localStorage.getItem("property"));
+    let temp=this.propertyManagerRequestService.getRequests();
+
+    console.log("data in property manager==>"+temp);
     const profile = sessionStorage.getItem('profile');
     if (profile) {
       this.profile = JSON.parse(profile);
@@ -136,6 +139,7 @@ export class PropertyManagerComponent {
   }
 
   toggleRequestModal(request?: Request) {
+    this.r.navigate(['/dashboard/property_manager/list_property_manager_request'])
     if (request) {
       this.currentRequest = request;
     }

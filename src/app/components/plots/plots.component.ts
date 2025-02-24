@@ -13,9 +13,13 @@ export class PlotsComponent {
   
 
   constructor(private router:Router,private propertyService:PropertyService){
+    
+  }
+
+  ngOnInit(){
     this.propertyListData=this.propertyService.propertyData[this.propertyService.selectedType];
     console.log(JSON.stringify(this.propertyListData)+"===>");
-    console.log("====>"+this.propertyListData[0].images[0])
+    console.log("====>"+this.propertyListData[0].commonPropertyDetails.images[0])
   }
 
   viewMore(property:any):void{

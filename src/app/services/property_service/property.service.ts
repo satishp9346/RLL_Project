@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -142,7 +144,38 @@ export class PropertyService {
     ]
   }
 
-  constructor() { }
+  APARTMENTS_WEBURL:string="http://localhost:9091/apartment";
+  PLOTS_WEBURL:string="http://localhost:9091/plots";
+  VILLAS_WEBURL:string="http://localhost:9091/villas";
+
+  constructor(private httpClient:HttpClient) { }
+
+  addApartmentData(property:any):Observable<any>{
+    return this.httpClient.post(this.APARTMENTS_WEBURL+"/add",property,{responseType:'json'});
+  }
+
+  sellProperty(id:number,buyer:any):Observable<any>{
+    return this.httpClient.put(this.APARTMENTS_WEBURL+"/"+id+"/sell",buyer,{responseType:'json'});
+  }
+
+  addPlotData(property:any):Observable<any>{
+    return this.httpClient.post(this.PLOTS_WEBURL+"/add",property,{responseType:'json'});
+  }
+
+  addVillaData(property:any):Observable<any>{
+    return this.httpClient.post(this.VILLAS_WEBURL+"/add",property,{responseType:'json'});
+  }
+
+  getUnsoldApartments():Observable<any>{
+    return this.httpClient.get<any>(this.APARTMENTS_WEBURL+"/unsold");
+  }
+  
+  getUnsoldPlots():Observable<any>{
+    return this.httpClient.get<any>(this.PLOTS_WEBURL+"/unsold");
+  }
+  getUnsoldVillas():Observable<any>{
+    return this.httpClient.get<any>(this.VILLAS_WEBURL+"/unsold");
+  }
 
   setSelectedType(type: string): void {
     this.selectedType = type;

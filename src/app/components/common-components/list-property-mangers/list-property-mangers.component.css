@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.prop-managers-main {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.856);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.card {
+    width: 80%;
+    max-width: 1200px;
+    border: none;
+    background-color: #fff;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.table {
+    width: 100%;
+    text-align: center;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: center;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    position: absolute;
+    top: -40px;
+    right: 0px;
+    padding: 0.5vw;
+    color: #fff;
+}

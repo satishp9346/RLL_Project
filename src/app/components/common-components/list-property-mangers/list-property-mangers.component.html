@@ -1,0 +1,29 @@
+<div class="prop-managers-main">
+    <div class="card shadow-sm p-4 bg-light rounded position-relative">
+        <button class="close-btn" (click)="close()">
+            <i class="fas fa-times fs-4"></i>
+        </button>
+        <table class="table table-hover table-responsive">
+            <thead class="table-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let propManager of propManagers">
+                    <td>{{propManager.ucd.firstName}}</td>
+                    <td>{{propManager.ucd.lastName}}</td>
+                    <td>{{propManager.user.email}}</td>
+                    <td>{{propManager.ucd.address.city}}, {{propManager.ucd.address.district}}, {{propManager.ucd.address.state}}, {{propManager.ucd.address.pinCode}}</td>
+                    <td>
+                        <button class="btn btn-primary px-5 py-2" (click)="selectPropertyManager(propManager)">Select</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

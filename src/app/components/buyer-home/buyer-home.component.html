@@ -1,42 +1,68 @@
 
 <!-- Container Section -->
-<div class="container mt-4">
-    <h3 class="text-center mb-4">Available Properties</h3>
-    <div class="row g-4">
-        <!-- Flats in Apartments -->
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg" class="card-img-top" alt="Flats in Apartments">
-                <div class="card-body">
-                    <h5 class="card-title">Flats in Apartments</h5>
-                    <p class="card-text">Find modern apartments with great amenities.</p>
-                    <button (click)="viewPropertList('/dashboard/buyer/apartments','apartmentsListData')" class="btn btn-primary">View Flats in Apartments</button>
-                </div>
-            </div>
-        </div>
 
-        <!-- Plots Slide -->
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img src="https://images.pexels.com/photos/1643389/pexels-photo-1643389.jpeg" class="card-img-top" alt="Plots">
-                <div class="card-body">
-                    <h5 class="card-title">Plots</h5>
-                    <p class="card-text">Explore open land plots for construction.</p>
-                    <button (click)="viewPropertList('dashboard/buyer/plots','plotsData')" class="btn btn-primary">View More</button>
-                </div>
-            </div>
+<div class="container-fluid p-0 my-5">
+    <header class="hero-section text-white d-flex align-items-center" [ngStyle]="{'background-image': 'url(' + currentHeroImage + ')'}">
+        <div class="container text-center">
+          <h1>Let's Find A Home<br>That's Perfect For You</h1>
+    
         </div>
-
-        <!-- Individual Houses / Villas -->
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg" class="card-img-top" alt="Villas">
+      </header>
+    
+      <!-- Property Gallery -->
+      <section class="gallery-section py-5 text-white">
+        <div class="container">
+          <div style="display: flex; flex-direction: row;justify-content: space-between;">
+            <h2 class="mb-4">The Best Properties in Los Angeles</h2>
+           
+          </div>
+          <div class="row g-3">
+            <div class="col-md-4" *ngFor="let property of properties2">
+              <div class="card shadow-sm">
+                <img [src]="property.image" class="card-img-top">
                 <div class="card-body">
-                    <h5 class="card-title">Individual Houses / Villas</h5>
-                    <p class="card-text">Luxury villas and independent houses for sale.</p>
-                    <button (click)="viewPropertList('/dashboard/buyer/individual_houses','villasData')" class="btn btn-primary">View More</button>
+                  <!-- <span class="badge bg-primary">{{ property.title }}</span> -->
+                  <h5 class="card-title mt-2">{{ property.title }}</h5>
+                  <p class="text-muted">{{ property.text }}</p>
+                  <button (click)="viewPropertList(property.type)" class="btn btn-primary">View Flats in Apartments</button>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </section>
+      <section class="gallery-section py-5 text-white">
+        <div class="container">
+          <h2 class="mb-4">Property Gallery</h2>
+          <div class="row g-3">
+            <div class="col-md-4" *ngFor="let image of galleryImages">
+              <img [src]="image" class="img-fluid rounded">
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- More Properties -->
+      <section class="more-properties py-5">
+        <div class="container">
+          <h2 class="mb-4">The Best Properties in Los Angeles</h2>
+          <div class="row g-3">
+            <div class="col-md-4" *ngFor="let property of properties">
+              <div class="card shadow-sm">
+                <img [src]="property.image" class="card-img-top">
+                <div class="card-body">
+                  <span class="badge bg-primary">{{ property.type }}</span>
+                  <h5 class="card-title mt-2">{{ property.price }}</h5>
+                  <p class="text-muted">{{ property.location }}</p>
+                  <div class="d-flex justify-content-between text-muted">
+                    <span>{{ property.bedrooms }} bedroom</span>
+                    <span>{{ property.bathrooms }} bathroom</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <button class="btn btn-dark mt-4">View All Properties</button> -->
+        </div>
+      </section>
 </div>

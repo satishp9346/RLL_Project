@@ -46,7 +46,7 @@ export class LoginComponent {
                 case 'SELLER':
                   this.router.navigate(['/dashboard/seller']);
                   break
-                case 'PROPERTY_MANAGER':
+                case 'PROPERTYMANAGER':
                   this.router.navigate(['/dashboard/property_manager']);
                   break;
                 case 'BUYER':

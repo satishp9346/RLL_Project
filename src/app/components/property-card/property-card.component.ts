@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BuyerRequestService } from 'src/app/services/buyer-service/buyer-request.service';
+import { PropertyManagerRequestsService } from 'src/app/services/property_manager_request_service/property-manger-requests-service.service';
 import { PropertyService } from 'src/app/services/property_service/property.service';
 
 @Component({
@@ -9,89 +11,84 @@ import { PropertyService } from 'src/app/services/property_service/property.serv
 export class PropertyCardComponent {
 
   selectedProperty:any;
-  
+  comProperty:any;
+  address:any;
+
+  selectedType:string;
+  profileData:any;
+
   loopData:any[]=[];
 
-  constructor(private propertyService:PropertyService){
-    this.selectedProperty=this.propertyService.selectedProperty;
-    let address=this.selectedProperty.address;
-    let fullAddress=`${address.doorNum}, ${address.street}, ${address.city}, ${address.district}, ${address.state}, ${address.country}, ${address.pinCode}`;
-    this.loopData= [
-      { label: "Carpet Area", value: this.selectedProperty.carpetArea },
-      { label: "Developer", value: this.selectedProperty.developer },
-      { label: "Apartment Name", value: this.selectedProperty.apartmentName },
-      { label: "Floor", value: `${this.selectedProperty.floor} Floor`},
-      { label: "Transaction Type", value: this.selectedProperty.transactionType},
-      { label: "Status", value: this.selectedProperty.status },
-      { label: "Facing", value: this.selectedProperty.facing },
-      { label: "Price Breakup", value: `${this.selectedProperty.price} | ₹${this.selectedProperty.registrationCharges} Approx. Registration Charges` },
-      { label: "Booking Amount", value: `₹${this.selectedProperty.bookingAmount}` },
-      { label: "Address", value: fullAddress },
-      { label: "Furnishing", value: this.selectedProperty.furnishing }
-    ]
-    console.log(JSON.stringify(this.propertyService.selectedProperty));
+  constructor(private propertyService:PropertyService,private buyerService:BuyerRequestService,private propertyManagerRequest:PropertyManagerRequestsService){
+    
   }
-
-  property = {
-    price: "65.0 Lac",
-    title: "2 BHK Flat For Sale in Hadapsar, Pune",
-    bhk: 2,
-    baths: 2,
-    balconies:3,
-    furnishing: "Furnished",
-    facing:"South",
-    images: [
-      "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH74166254298036/QS1042/QS1042-Q1/IMG_20230406_183718.jpg",
-      "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH74166254298036/QS1042/QS1042-Q1/IMG_20230406_183718.jpg",
-      "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH74166254298036/QS1042/QS1042-Q1/IMG_20230406_183718.jpg",
-      "https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/flyfish/raw/NH74166254298036/QS1042/QS1042-Q1/IMG_20230406_183718.jpg"
-    ],
-    details: [
-      { label: "Carpet Area", value: "740 sqft" },
-      { label: "Developer", value: "Subhash Builders" },
-      { label: "Apartment Name", value: "Vardhaman Township" },
-      { label: "Floor", value: "4th Floor" },
-      { label: "Transaction Type", value: "Resale" },
-      { label: "Status", value: "Ready to Move" },
-      { label: "Facing", value: "South" },
+  ngOnInit(){
+    this.selectedType=localStorage.getItem("selectedType");
+    console.log(this.selectedType);
+    // this.profileData=sessionStorage.getItem("profile");
+    const profile = sessionStorage.getItem('profile');
+      if (profile) {
+        this.profileData = JSON.parse(profile);
+        console.log("===>"+this.profileData);
+      }
+    this.buyerService.getRequestData().subscribe((data)=>{
+      this.selectedProperty=data;
+      console.log(JSON.stringify(this.selectedProperty)+"==>");
+    
+    this.comProperty=this.selectedProperty.commPropDetails;
+    this.address=this.selectedProperty.commPropDetails.address;
+    let fullAddress=`${this.address.doorNum}, ${this.address.street}, ${this.address.city}, ${this.address.district}, ${this.address.state}, ${this.address.country}, ${this.address.pinCode}`;
+    if(this.selectedType==="apartment"){
+    this.loopData= [
+      { label: "Carpet Area", value: `${this.comProperty.carpetArea} Sqft` },
+      { label: "Developer", value: this.comProperty.developer },
+      { label: "Apartment Name", value: this.selectedProperty.apartmentName },
+      { label: "Floor", value: `${this.selectedProperty.floorNo} Floor`},
+      { label: "No.Of Lifts", value: `${this.selectedProperty.noOfLifts} Lifts Available`},
+      { label: "Transaction Type", value: this.comProperty.transactionType},
+      { label: "Status", value: this.comProperty.status },
+      { label: "Facing", value: this.comProperty.facing },
+      { label: "Price Breakup", value: `${this.comProperty.price} | ₹${this.comProperty.registrationCharges} Approx. Registration Charges` },
+      { label: "Booking Amount", value: `₹${this.comProperty.bookingAmount}` },
+      { label: "Address", value: fullAddress },
+      { label: "Furnishing", value: this.selectedProperty.furnishedStatus },
+      { label: "Age Of Construction", value: this.selectedProperty.ageOfConstruction },
+      { label: "Water Availability", value: this.selectedProperty.waterAvailability },
+      { label: "Status Of Electricity", value: this.selectedProperty.statusOfElectricity },
     ]
-  };
+  }
+  if(this.selectedType==="plots"){
+    this.loopData= [
+      { label: "Carpet Area", value: `${this.comProperty.carpetArea} Sqft` },
+      { label: "Developer", value: this.comProperty.developer },
+      { label: "Transaction Type", value: this.comProperty.transactionType},
+      { label: "Status", value: this.comProperty.status },
+      { label: "Facing", value: this.comProperty.facing },
+      { label: "Price Breakup", value: `${this.comProperty.price} | ₹${this.comProperty.registrationCharges} Approx. Registration Charges` },
+      { label: "Booking Amount", value: `₹${this.comProperty.bookingAmount}` },
+      { label: "Address", value: fullAddress },
 
-  propertyDetails = [
-    { label: "Price Breakup", value: "₹65 Lac | ₹3,90,000 Approx. Registration Charges" },
-    { label: "Booking Amount", value: "₹1.0 Lac" },
-    { label: "Address", value: "Flat No 421 Floor No 4 B8 building Vardhman Township Sasane Nagar Hadapsar Pune., Hadapsar, Pune - East, Maharashtra" },
-    { label: "Furnishing", value: "Unfurnished" },
-    {
-      label: "Description",
-      value: `Discover a comfortable living experience with this 2 BHK flat for sale in Subhash Builders Vardhaman Township, Hadapsar, Pune. 
-              Situated in a well-developed area, this property offers modern amenities and excellent connectivity to essential facilities. 
-              Perfect for families seeking convenience and quality living.
-              
-              Property Specifications:
-              - Spacious flat with a carpet area of 740 sq. ft.
-              - Located on the 4th floor of a 5-story building.
-              - Semi-furnished with well-crafted wardrobes.
-              - 2 bedrooms, 2 bathrooms (one attached, one common).
-              - Modern modular kitchen with dedicated utility area.
-              - Vitrified flooring, west-facing, and Vastu compliant.
-              
-              Facilities:
-              - Covered parking, 24-hour water supply, and power backup.
-              - Security guard and one lift for easy access.
-              
-              Locality:
-              - Schools, hospitals, malls within 2 km.
-              - Public transport, railway, and metro 9-10 km away.
-              - Nearby banks and ATMs available.`
-    }
-  ];
-
-  details=this.propertyDetails.filter((data)=>data.label!=="Description");
-
-  getDescription() {
-    const descriptionDetail = this.propertyDetails.find(detail => detail.label === "Description");
-    return descriptionDetail ? descriptionDetail.value : '';
+    ]
+  }
+  if(this.selectedType==="villa"){
+    this.loopData= [
+      { label: "Carpet Area", value: `${this.comProperty.carpetArea} Sqft` },
+      { label: "Developer", value: this.comProperty.developer },
+      { label: "Transaction Type", value: this.comProperty.transactionType},
+      { label: "Status", value: this.comProperty.status },
+      { label: "Facing", value: this.comProperty.facing },
+      { label: "Price Breakup", value: `${this.comProperty.price} | ₹${this.comProperty.registrationCharges} Approx. Registration Charges` },
+      { label: "Booking Amount", value: `₹${this.comProperty.bookingAmount}` },
+      { label: "Address", value: fullAddress },
+      { label: "Furnishing", value: this.selectedProperty.furnishedStatus },
+      { label: "Age Of Construction", value: this.selectedProperty.ageOfConstruction },
+      { label: "Water Availability", value: this.selectedProperty.waterAvailability },
+      { label: "Status Of Electricity", value: this.selectedProperty.statusOfElectricity },
+    ]
+  }
+  
+    // console.log(JSON.stringify(this.propertyService.selectedProperty));
+  });
   }
 
   showChatBox: boolean = false;
@@ -104,6 +101,34 @@ export class PropertyCardComponent {
 
   closeImagePopup() {
     this.showImagePopup = false;
+  }
+  disableBuy:boolean=false;
+  buyProperty(){
+    let propertyDetails = {
+      id:this.selectedProperty.apartmentId,
+      commonPropertyDetails: this.selectedProperty.commPropDetails,
+      authorityApproval: this.selectedProperty.authorityApproval,
+      type: this.selectedProperty.type,
+      baths: this.selectedProperty.baths,
+      furnishedStatus: this.selectedProperty.furnishedStatus,
+      balconies: this.selectedProperty.balconies,
+      apartmentName: this.selectedProperty.apartmentName,
+      floorNo: this.selectedProperty.floorNo,
+      noOfLifts: this.selectedProperty.noOfLifts,
+      ageOfConstruction: this.selectedProperty.ageOfConstruction,
+      waterAvailability: this.selectedProperty.waterAvailability,
+      statusOfElectricity: this.selectedProperty.statusOfElectricity,
+      propertyManager: this.selectedProperty.seller.property_manager,
+      seller: this.selectedProperty.seller,
+      buyer: this.profileData,
+      propertyType: 'apartment',
+    };
+    console.log(propertyDetails);
+    this.propertyManagerRequest.addBuyRequest(propertyDetails).subscribe((data)=>{
+      console.log("data added to prp man req"+data);
+      alert("request sent to property manager")
+      this.disableBuy=true;
+    })
   }
   // Go to previous image
   // prevImage() {

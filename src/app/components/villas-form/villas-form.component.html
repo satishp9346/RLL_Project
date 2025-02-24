@@ -322,11 +322,14 @@
                 </div>
  
                 <div class="text-center">
-                    <button type="submit" class=" btn btn-success ">Property Manager</button>
+                    <button type="button" class="btn btn-danger mr-5" (click)="setPropertyManager()">Property Manager</button>
                     <button type="submit" class="btn btn-success ml-4">Submit Details</button>
                 </div>
  
             </div>
         </form>
     </div>
+</div>
+<div>
+    <app-list-property-mangers *ngIf="isOpenListPropertyManagers" (propertyManagerSelected)="onPropertyManagerSelected($event)" (closePopup)="closePopup()"></app-list-property-mangers>
 </div>

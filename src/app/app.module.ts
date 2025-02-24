@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from '../app/components/login/login.component';
@@ -9,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http'
 import { BuyerComponent } from './components/buyer/buyer.component';
-import { ApartmentsComponent } from './components/apartments/apartments.component';
+// import { ApartmentsComponent } from './components/apartments/apartments.component';
 import { PlotsComponent } from './components/plots/plots.component';
 import { IndividualHousesComponent } from './components/individual-houses/individual-houses.component';
 import { BuyerHomeComponent } from './components/buyer-home/buyer-home.component';
@@ -25,6 +24,16 @@ import { ApartmentFormComponent } from './components/apartment-form/apartment-fo
 import { PlotFormComponent } from './components/plot-form/plot-form.component';
 import { VillasFormComponent } from './components/villas-form/villas-form.component';
 import { CommonDashboardComponent } from './components/common-components/common-dashboard/common-dashboard.component';
+import { PropertyService } from './services/property_service/property.service';
+import { ApartmentsComponent } from './components/apartments/apartments.component';
+import { ListPropertyMangersComponent } from './components/common-components/list-property-mangers/list-property-mangers.component';
+import { ListPropertyMangerRequestsComponent } from './components/list-property-manger-requests/list-property-manger-requests.component';
+import { PropertyCardManagerComponent } from './components/property-card-manager/property-card-manager.component';
+import { AdminRequestPropertyCardComponent } from './components/admin-request-property-card/admin-request-property-card.component';
+import { ListAdminRequestsComponent } from './components/list-admin-requests/list-admin-requests.component';
+import { DefaultPageComponent } from './components/common-components/default-page/default-page.component';
+import { SellerListRequestsComponent } from './components/seller-list-requests/seller-list-requests.component';
+import { SellerRequestPropertyCardComponent } from './components/seller-request-property-card/seller-request-property-card.component';
 
 
 @NgModule({
@@ -48,7 +57,15 @@ import { CommonDashboardComponent } from './components/common-components/common-
     ApartmentFormComponent,
     PlotFormComponent,
     VillasFormComponent,
-    CommonDashboardComponent
+    CommonDashboardComponent,
+    ListPropertyMangersComponent,
+    ListPropertyMangerRequestsComponent,
+    PropertyCardManagerComponent,
+    AdminRequestPropertyCardComponent,
+    ListAdminRequestsComponent,
+    DefaultPageComponent,
+    SellerListRequestsComponent,
+    SellerRequestPropertyCardComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +75,7 @@ import { CommonDashboardComponent } from './components/common-components/common-
     CommonModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [PropertyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

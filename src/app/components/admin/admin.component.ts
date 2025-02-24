@@ -135,6 +135,7 @@ export class AdminComponent {
   }
 
   toggleRequestModal(request?: Request) {
+    this.r.navigate(['/dashboard/admin/list_admin_requests'])
     if (request) {
       this.currentRequest = request;
     }

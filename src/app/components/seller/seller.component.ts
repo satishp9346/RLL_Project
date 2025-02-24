@@ -46,13 +46,9 @@ export class SellerComponent {
   displayPopup(){
     this.openPopup=!this.openPopup;
   }
-
-  toggleNotification() {
-    this.notificationVisible=!this.notificationVisible;
-  }
-  toggleNotification1() {
-    this.notificationVisible1=!this.notificationVisible1;
-  }
+ 
+ 
+ 
   
 
   apartments():void{
@@ -84,11 +80,17 @@ export class SellerComponent {
       password: 'currentpassword',
       address: '456 Hi-Tech City Road\nMadhapur\nHyderabad, Telangana 500081'
     };
-
+    toggleNotification(){
+      
+    }
     profile:any={};
     constructor(private router:Router){
       this.profile =JSON.parse(sessionStorage.getItem("profile"));
       console.log(this.profile);
+    }
+
+    redirectToReq() {
+      this.router.navigate(['/dashboard/seller/seller_list_requests']);
     }
   
     toggleSidebar() {

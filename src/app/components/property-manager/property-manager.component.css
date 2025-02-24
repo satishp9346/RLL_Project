@@ -1,6 +1,5 @@
 /* Base styles */
 .dashboard-container {
-    min-height: 100vh;
     background-color: #f8f9fa;
   }
   
@@ -83,7 +82,7 @@
     background:black;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 1rem;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
