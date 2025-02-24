@@ -152,6 +152,20 @@ export class PropertyCardComponent {
   //   }
   // }
 
+  addToFav(){
+    this.propertyService.getBuyerbyUserId(this.profileData.user.userId).subscribe((data)=>{
+      console.log("buyer data===>"+data);
+      if(this.selectedType==='apartment')
+        this.propertyService.addToAprtmntFavourate(this.selectedProperty.apartmentId,data.buyerId).subscribe(data=>console.log(data));
+      if(this.selectedType==='plots')
+        this.propertyService.addToPlotFavourate(this.selectedProperty.plotId,data.buyerId).subscribe(data=>console.log(data));
+      if(this.selectedType==='villa')
+        this.propertyService.addToVillaFavourate(this.selectedProperty.idividualId,data.buyerId).subscribe(data=>console.log(data));
+    
+    });
+    
+  }
+
   openChat() {
     this.showChatBox = true;
   }

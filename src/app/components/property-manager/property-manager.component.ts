@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { PropertyManagerServiceService } from 'src/app/services/property_manager/property-manager-service.service';
 import { PropertyManagerRequestsService } from 'src/app/services/property_manager_request_service/property-manger-requests-service.service';
 interface UserProfile {
   name: string;
@@ -107,10 +108,12 @@ export class PropertyManagerComponent {
 
   profile:any={};
 
-  constructor(private r:Router,private propertyManagerRequestService:PropertyManagerRequestsService) {
+  reqCount:number=0;
+  constructor(private r:Router,private propertyManagerRequestService:PropertyManagerRequestsService,private propManagerserv:PropertyManagerServiceService) {
     this.profile =JSON.parse(sessionStorage.getItem("profile"));
     console.log(this.profile);
     this.filteredRequests = this.requests;
+    this.reqCount= propertyManagerRequestService.getRequests().length;
   }
   propertyRequest:any;
 
@@ -124,6 +127,10 @@ export class PropertyManagerComponent {
       this.profile = JSON.parse(profile);
       console.log("===>"+this.profile);
     }
+  }
+  buyersList:any[]=[];
+  showBuyers(){
+    this.r.navigate(["/dashboard/property_manager/list_buyers"]);
   }
   setProperty(){
       localStorage.setItem("property",JSON.stringify({
@@ -277,8 +284,8 @@ export class PropertyManagerComponent {
     };
     return icons[category];
   }
-  sellers():void{
-    this.r.navigate(['/seller']);
+  showSellers():void{
+    this.r.navigate(['/dashboard/property_manager/list_sellers']);
   }
   // notificatioVisible = false;
 

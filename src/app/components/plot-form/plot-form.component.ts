@@ -30,7 +30,7 @@ export class PlotFormComponent {
       facing: ['', [Validators.required,]],  // Only specific values allowed
       transactionType: ['', [Validators.required]],
       bookingAmount:['', [Validators.required]],
-      price: ['', [Validators.required]],
+      price: ['', [Validators.required,Validators.pattern('^[0-9]+$')]],
       developer:['', [Validators.required]],
       registrationCharges:['', [Validators.required]],
       authorityApproval: ['', [Validators.required]],
@@ -38,9 +38,9 @@ export class PlotFormComponent {
       description: ['', [Validators.required]],
       floorsAllowed:['', [Validators.required, Validators.pattern('^[0-9]+$')]],  // Basic pattern for RERA number
       images: ['', [Validators.required]],
-      door:['',[Validators.required,Validators.pattern('^[0-9]+$')]],
+      door:['',[Validators.required]],
       street:['', Validators.required],
-      village:['', Validators.required],
+      city:['', Validators.required],
       district:['', Validators.required],
       state:['', Validators.required],
       country:['', Validators.required],
@@ -97,15 +97,11 @@ export class PlotFormComponent {
           overlooking: formData.overlooking,
           status: formData.status,
           images: [
-            "https://newprojects.99acres.com/projects/av_bhat_developers_llp/a_v_anandam/images/x7ammu0_1722507771_508332469_optOrig.jpg",
-            "https://newprojects.99acres.com/projects/naiknavare_developers/naiknavare_eagles_nest/images/xidpomz_1714373386_488964160_optOrig.jpg",
-            "https://imagecdn.99acres.com/media1/27697/17/553957287O-1736483369547.jpg",
-            "https://imagecdn.99acres.com/media1/27697/17/553957293O-1736483369817.jpg",
-             "https://imagecdn.99acres.com/media1/27697/17/553957283O-1736483371668.jpg",
-              "https://imagecdn.99acres.com/media1/27697/17/553957317O-1736483349852.jpg",
-              "https://imagecdn.99acres.com/media1/27697/17/553957301O-1736483360460.jpg",
-             "https://imagecdn.99acres.com/media1/26562/1/531241477O-1731712021116.jpg"
-      
+            "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2024/12/02/Project-Photo-3-Global-City-VI-Hyderabad-5425065_900_1200_0_320.jpg",
+            "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2024/12/02/Project-Photo-2-Global-City-VI-Hyderabad-5425065_1200_1600_0_320.jpg",
+            "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2024/12/02/Project-Photo-1-Global-City-VI-Hyderabad-5425065_410_1440_0_320.jpg",
+            "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2024/12/02/Project-Photo-4-Global-City-VI-Hyderabad-5425065_960_1280_0_320.jpg",
+            "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2024/12/02/Project-Photo-6-Global-City-VI-Hyderabad-5425065_777_1280_0_320.jpg"   
           ]
         },
         authorityApproval: formData.authorityApproval,

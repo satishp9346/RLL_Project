@@ -17,17 +17,63 @@ export class AdminRequestPropertyCardComponent {
   loopData:any[]=[];
   selectedPropertyCopy:any={};
   constructor(private requsetService:AdminRequestsServiceService,private propertyService:PropertyService){
+  //   this.requsetService.getRequestProperty().subscribe((data)=>{
+  //     this.selectedProperty=data;
+  //     console.log(this.selectedProperty+"request property")
+  //     this.selectedPropertyCopy = JSON.parse(JSON.stringify(this.selectedProperty));
+  //   delete this.selectedPropertyCopy.propertyType;
+  //   console.log(this.selectedPropertyCopy);
+  //   this.comProperty=this.selectedProperty.commonPropertyDetails;
+  //   this.address=this.selectedProperty.commonPropertyDetails.address;
+  //   let fullAddress=`${this.address.doorNum}, ${this.address.street}, ${this.address.city}, ${this.address.district}, ${this.address.state}, ${this.address.country}, ${this.address.pinCode}`;
+  //   this.loopData= [
+  //     { label: "Carpet Area", value: this.comProperty.carpetArea },
+  //     { label: "Developer", value: this.comProperty.developer },
+  //     { label: "Apartment Name", value: this.selectedProperty.apartmentName },
+  //     { label: "Floor", value: `${this.selectedProperty.floorNo} Floor`},
+  //     { label: "No.Of Lifts", value: `${this.selectedProperty.noOfLifts} Lifts Available`},
+  //     { label: "Transaction Type", value: this.comProperty.transactionType},
+  //     { label: "Status", value: this.comProperty.status },
+  //     { label: "Facing", value: this.comProperty.facing },
+  //     { label: "Price Breakup", value: `${this.comProperty.price} | ₹${this.comProperty.registrationCharges} Approx. Registration Charges` },
+  //     { label: "Booking Amount", value: `₹${this.comProperty.bookingAmount}` },
+  //     { label: "Address", value: fullAddress },
+  //     { label: "Furnishing", value: this.selectedProperty.furnishedStatus },
+  //     { label: "Age Of Construction", value: this.selectedProperty.ageOfConstruction },
+  //     { label: "Water Availability", value: this.selectedProperty.waterAvailability },
+  //     { label: "Status Of Electricity", value: this.selectedProperty.statusOfElectricity },
+      
+
+  //   ]
+  //   // console.log(JSON.stringify(this.requsetService.getRequest()));
+  // });
+  
+  }
+  // selectedProperty:any;
+  // comProperty:any;
+  // address:any;
+  selectedType:string;
+
+  // loopData:any[]=[];
+
+
+  showChatBox: boolean = false;
+  showImagePopup: boolean = false;
+  currentImageIndex: number = 0;
+
+  ngOnInit(){
+    console.log(this.selectedProperty);
     this.requsetService.getRequestProperty().subscribe((data)=>{
       this.selectedProperty=data;
-      console.log(this.selectedProperty+"request property")
-      this.selectedPropertyCopy = JSON.parse(JSON.stringify(this.selectedProperty));
-    delete this.selectedPropertyCopy.propertyType;
-    console.log(this.selectedPropertyCopy);
+      console.log(JSON.stringify(this.selectedProperty)+"==>");
+    this.selectedType=this.selectedProperty.propertyType;
+    console.log(this.selectedType)
     this.comProperty=this.selectedProperty.commonPropertyDetails;
     this.address=this.selectedProperty.commonPropertyDetails.address;
     let fullAddress=`${this.address.doorNum}, ${this.address.street}, ${this.address.city}, ${this.address.district}, ${this.address.state}, ${this.address.country}, ${this.address.pinCode}`;
+    if(this.selectedType==="apartment"){
     this.loopData= [
-      { label: "Carpet Area", value: this.comProperty.carpetArea },
+      { label: "Carpet Area", value: `${this.comProperty.carpetArea} Sqft` },
       { label: "Developer", value: this.comProperty.developer },
       { label: "Apartment Name", value: this.selectedProperty.apartmentName },
       { label: "Floor", value: `${this.selectedProperty.floorNo} Floor`},
@@ -42,20 +88,38 @@ export class AdminRequestPropertyCardComponent {
       { label: "Age Of Construction", value: this.selectedProperty.ageOfConstruction },
       { label: "Water Availability", value: this.selectedProperty.waterAvailability },
       { label: "Status Of Electricity", value: this.selectedProperty.statusOfElectricity },
-      
-
     ]
-    // console.log(JSON.stringify(this.requsetService.getRequest()));
-  });
   }
-
-  showChatBox: boolean = false;
-  showImagePopup: boolean = false;
-  currentImageIndex: number = 0;
-
-  ngOnInit(){
-    console.log(this.selectedProperty);
-    
+  if(this.selectedType==="plots"){
+    this.loopData= [
+      { label: "Carpet Area", value: `${this.comProperty.carpetArea} Sqft` },
+      { label: "Developer", value: this.comProperty.developer },
+      { label: "Transaction Type", value: this.comProperty.transactionType},
+      { label: "Status", value: this.comProperty.status },
+      { label: "Facing", value: this.comProperty.facing },
+      { label: "Price Breakup", value: `${this.comProperty.price} | ₹${this.comProperty.registrationCharges} Approx. Registration Charges` },
+      { label: "Booking Amount", value: `₹${this.comProperty.bookingAmount}` },
+      { label: "Address", value: fullAddress },
+  
+    ]
+  }
+  if(this.selectedType==="villa"){
+    this.loopData= [
+      { label: "Carpet Area", value: `${this.comProperty.carpetArea} Sqft` },
+      { label: "Developer", value: this.comProperty.developer },
+      { label: "Transaction Type", value: this.comProperty.transactionType},
+      { label: "Status", value: this.comProperty.status },
+      { label: "Facing", value: this.comProperty.facing },
+      { label: "Price Breakup", value: `${this.comProperty.price} | ₹${this.comProperty.registrationCharges} Approx. Registration Charges` },
+      { label: "Booking Amount", value: `₹${this.comProperty.bookingAmount}` },
+      { label: "Address", value: fullAddress },
+      { label: "Furnishing", value: this.selectedProperty.furnishedStatus },
+      { label: "Age Of Construction", value: this.selectedProperty.ageOfConstruction },
+      { label: "Water Availability", value: this.selectedProperty.waterAvailability },
+      { label: "Status Of Electricity", value: this.selectedProperty.statusOfElectricity },
+    ]
+  }
+    });
   }
 
   openImagePopup() {
@@ -93,7 +157,11 @@ export class AdminRequestPropertyCardComponent {
     // })
     this.requsetService.addApartment(propertyData.apartment).subscribe((data)=>{
       console.log("data add successfully"+data);
+      this.requsetService.deleteRequest(this.selectedProperty.id).subscribe((data)=>{
+        console.log("deleted data ..."+data);
+      });
     },(error)=>{console.log(error.message)});
+
   }
   if(this.selectedProperty.propertyType==='plots'){
     let propertyData={

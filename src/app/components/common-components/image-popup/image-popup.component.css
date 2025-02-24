@@ -13,6 +13,10 @@
     z-index: 1000;
     border-radius: 10px;
 }
+.image{
+    width: 50vw;
+    height: 60vh;
+}
 
 .carousel-container {
     display: flex;

@@ -101,13 +101,17 @@ export class ListPropertyMangerRequestsComponent {
     // this.requestService.setRequest(property);
     this.requestService.setRequestProperty(property).subscribe((data)=>{
       console.log("seted request property==>"+data);
-      alert("request accepted");
+      // alert("request accepted");
     });
     this.router.navigate(['/dashboard/property_manager/property_card_manager']);
   }
   sellProperty(property:any){
-    this.propertyService.sellProperty(property.id,property.buyer).subscribe((data)=>{
-      console.log(data+"data added success fully");
+    this.propertyService.getBuyerbyUserId(property.buyer.user.userId).subscribe((data)=>{
+      console.log("buyer===>"+data);
+      this.propertyService.sellProperty(property.id,data).subscribe((data)=>{
+        console.log(data+"data added success fully");
+      })
     })
+   
   }
 }

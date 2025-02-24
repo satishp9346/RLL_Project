@@ -49,12 +49,15 @@
             <button class="btn btn-primary btn-custom" (click)="openChat()">
                 <i class="bi bi-chat"></i> Chat with Property Manager
             </button>
-            <button class="btn btn-secondary btn-custom ms-4" (click)="openImagePopup()">
+            <button class="btn btn-secondary btn-custom ms-2" (click)="openImagePopup()">
                 <i class="bi bi-images"></i> View All Images
-            </button>
-            <button class="btn btn-success btn-custom mx-4" (click)="buyProperty()" [disabled]="disableBuy">
+            </button><br>
+            <button class="btn btn-success btn-custom mx-2" (click)="buyProperty()" [disabled]="disableBuy">
                  Buy
             </button>
+            <button class="btn btn-success btn-custom " (click)="addToFav()">
+                add to Favourate
+           </button>
         </div>
     </div>
 
@@ -141,10 +144,13 @@
             </button>
             <button class="btn btn-secondary btn-custom ms-4" (click)="openImagePopup()">
                 <i class="bi bi-images"></i> View All Images
+            </button><br>
+            <button class="btn btn-success btn-custom mx-2" (click)="buyProperty()" [disabled]="disableBuy">
+                 Buy
             </button>
-            <button class="btn btn-success btn-custom" (click)="openChat()">
-                <i class="bi bi-chat"></i> Buy
-            </button>
+            <button class="btn btn-success btn-custom " (click)="addToFav()">
+                add to Favourate
+           </button>
         </div>
     </div>
 
@@ -233,10 +239,13 @@
             </button>
             <button class="btn btn-secondary btn-custom ms-4" (click)="openImagePopup()">
                 <i class="bi bi-images"></i> View All Images
+            </button><br>
+            <button class="btn btn-success btn-custom mx-2" (click)="buyProperty()" [disabled]="disableBuy">
+                 Buy
             </button>
-            <button class="btn btn-success btn-custom" (click)="openChat()">
-                <i class="bi bi-chat"></i> Buy
-            </button>
+            <button class="btn btn-success btn-custom " (click)="addToFav()">
+                add to Favourate
+           </button>
         </div>
     </div>
 

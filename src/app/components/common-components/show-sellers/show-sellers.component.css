@@ -1,10 +1,9 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
-
-.prop-managers-main {
+.pop-up {
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -19,23 +18,24 @@
     z-index: 1000;
 }
 
-.card {
-    width: 80%;
+.card1 {
+    width: 60%;
     max-width: 1200px;
     border: none;
     background-color: #fff;
     border-radius: 1rem;
     position: relative;
+    padding: 20px 0;
 }
 
 .table {
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
 }
 
 th, td {
     padding: 1rem;
-    text-align: center;
+    text-align: left;
 }
 
 .table-hover tbody tr:hover {
@@ -67,5 +67,5 @@ th, td {
     top: -40px;
     right: 0px;
     padding: 0.5vw;
-    color:#ffff;
+    color: #fff;
 }

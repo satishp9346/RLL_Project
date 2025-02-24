@@ -24,6 +24,11 @@ import { AdminRequestPropertyCardComponent } from './components/admin-request-pr
 import { ListAdminRequestsComponent } from './components/list-admin-requests/list-admin-requests.component';
 import { SellerRequestPropertyCardComponent } from './components/seller-request-property-card/seller-request-property-card.component';
 import { SellerListRequestsComponent } from './components/seller-list-requests/seller-list-requests.component';
+import { ShowBuyersComponent } from './components/common-components/show-buyers/show-buyers.component';
+import { ShowPropertyManagersComponent } from './components/common-components/show-property-managers/show-property-managers.component';
+import { ShowSellersComponent } from './components/common-components/show-sellers/show-sellers.component';
+import { BuyerFavouratePropertiesComponent } from './components/buyer-favourate-properties/buyer-favourate-properties.component';
+import { BuyerViewedPropertiesComponent } from './components/buyer-viewed-properties/buyer-viewed-properties.component';
 
 const routes: Routes = [
   {path:'',component:CommonDashboardComponent},
@@ -38,8 +43,12 @@ const routes: Routes = [
         path:'admin',
         component:AdminComponent,
         children:[
+          {path:'',component:BuyerHomeComponent},
           {path:'list_admin_requests',component:ListAdminRequestsComponent},
           {path:'admin_request_property_card',component:AdminRequestPropertyCardComponent},
+          {path:'list_buyers',component:ShowBuyersComponent},
+          {path:'list_property_managers',component:ShowPropertyManagersComponent},
+          {path:'list_sellers',component:ShowSellersComponent}
         ]
       },
       {
@@ -50,13 +59,17 @@ const routes: Routes = [
           {path:'apartments',component:ApartmentsComponent},
           {path:'plots',component:PlotsComponent},
           {path:'individual_houses',component:IndividualHousesComponent},
-          {path:'property_card',component:PropertyCardComponent}
+          {path:'property_card',component:PropertyCardComponent},
+          {path:'favourite',component:BuyerFavouratePropertiesComponent},
+          {path:'viewed',component:BuyerViewedPropertiesComponent},
+          {path:'list_property_managers',component:ShowPropertyManagersComponent},
         ]
       },
       {
         path:'seller',
         component:SellerComponent,
         children:[
+          {path:'',component:BuyerHomeComponent},
           {path:'apartment_form',component:ApartmentFormComponent},
           {path:'plot_form',component:PlotFormComponent},
           {path:'villas_form',component:VillasFormComponent},
@@ -68,8 +81,12 @@ const routes: Routes = [
         path:'property_manager',
         component:PropertyManagerComponent,
         children:[
+          {path:'',component:BuyerHomeComponent},
           {path:'list_property_manager_request',component:ListPropertyMangerRequestsComponent},
-          {path:'property_card_manager',component:PropertyCardManagerComponent}
+          {path:'property_card_manager',component:PropertyCardManagerComponent},
+          {path:'list_buyers',component:ShowBuyersComponent},
+          {path:'list_property_managers',component:ShowPropertyManagersComponent},
+          {path:'list_sellers',component:ShowSellersComponent}
         ]
       }
     ]

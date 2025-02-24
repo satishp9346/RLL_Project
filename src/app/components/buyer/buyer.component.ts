@@ -27,5 +27,11 @@ export class BuyerComponent {
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
+  viewedProperties(){ 
+    this.router.navigate(['/dashboard/buyer/viewed']);
+  }
+  favourate(){
+    this.router.navigate(['/dashboard/buyer/favourite']);
+  }
   
 }

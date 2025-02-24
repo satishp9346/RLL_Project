@@ -1,7 +1,195 @@
-<div class="property_card p-5 bg-body-tertiary">
+<div class="property_card p-5 bg-body-tertiary" *ngIf="selectedType==='apartment'">
+    <div class="card main mx-5 px-5 py-4">
+        <h3 class="price-tag">₹{{ comProperty.price }}.00</h3>
+        <p class="property-title pb-2">{{ comProperty.type }} Flat for Sale in {{address.city}}, {{address.district}}</p>
+
+        <div class="row h-100">
+            <!-- Image Grid -->
+            <div class="col-md-5 h-100">
+                <div class="row g-2 h-100">
+                    <div class="col-6 pe-1">
+                        <img [src]="comProperty.images[0]" class="img-fluid image1 rounded h-100" alt="Property Image">
+                    </div>
+                    <div class="col-6 h-100 mb-1">
+                        <div class="row">
+                            <img [src]="comProperty.images[1]" class="img-fluid image2 rounded mb-1" alt="Property Image">
+                        </div>
+                        <div class="row g-2 h-50">
+                            <div class="col-6 pe-1">
+                                <img [src]="comProperty.images[2]" class="img-fluid image3 rounded" alt="Property Image">
+                            </div>
+                            <div class="col-6">
+                                <img [src]="comProperty.images[3]" class="img-fluid image3 rounded" alt="Property Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Details -->
+            <div class="col-md-7 px-4">
+                <div class="property-icons">
+                    <span><i class="fas fa-bed"></i> {{ selectedProperty.type }}</span>
+                    <span><i class="fas fa-bath"></i> {{ selectedProperty.baths }} Baths</span>
+                    <span><i class="fas fa-couch"></i> {{ selectedProperty.furnishedStatus}}</span>
+                    <span><i class="fas fa-building"></i> {{ selectedProperty.balconies }} Balconies</span>
+                </div>
+
+                <div class="row py-4">
+                    <div class="col-4 property-data py-3" *ngFor="let detail of loopData.slice(0,7)">
+                        <p>{{ detail.label }}</p>
+                        <h3>{{ detail.value }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      <!-- Buttons -->
+      <div class="mt-3">
+        <button class="btn btn-primary btn-custom" (click)="openChat()">
+            <i class="bi bi-chat"></i> Chat with Property Manager
+        </button>
+        <button class="btn btn-secondary btn-custom ms-4" (click)="openImagePopup()">
+            <i class="bi bi-images"></i> View All Images
+        </button><br>
+        <button class="btn btn-primary btn-custom" (click)="acceptRequest()">
+            <i class="bi bi-chat"></i> Accept
+        </button>
+        <button class="btn btn-danger btn-custom ms-4" (click)="rejectRequest()">
+            <i class="bi bi-images"></i> Reject
+        </button>
+    </div>
+    </div>
+
+    <!-- Chat Box Component -->
+    <app-chat-box *ngIf="showChatBox" (closeChat)="closeChat()"></app-chat-box>
+
+    <!-- Image Popup Component -->
+    <app-image-popup 
+    *ngIf="showImagePopup" 
+    [showImagePopup]="showImagePopup"
+    [imageList]="comProperty.images"
+    [currentImageIndex]="currentImageIndex"
+    (closePopup)="closeImagePopup()">
+    </app-image-popup>
+
+
+
+    <div class="card mx-5 px-5">
+        <div class="more-details">
+            <h1 class="fs-2 pb-4">More Details</h1>
+            <table>
+                <tr *ngFor="let detail of loopData.slice(7)">
+                    <td>{{ detail.label }}</td>
+                    <th>{{ detail.value }}</th>
+                </tr>
+            </table>
+
+            <h4>Description:</h4>
+            <p class="pt-3">{{ comProperty.description }}</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- For plots -->
+<div class="property_card p-5 bg-body-tertiary" *ngIf="selectedType==='plots'">
     <div class="card main mx-5 px-5 py-4">
         <h3 class="price-tag">₹{{ comProperty.price }}</h3>
-        <p class="property-title pb-2">{{ comProperty.type }} Flat for Sale in {{address.city}}, {{address.district}}</p>
+        <p class="property-title pb-2">{{ comProperty.type }} Plot for Sale in {{address.city}}, {{address.district}}</p>
+
+        <div class="row h-100">
+            <!-- Image Grid -->
+            <div class="col-md-5 h-100">
+                <div class="row g-2 h-100">
+                    <div class="col-6 pe-1">
+                        <img [src]="comProperty.images[0]" class="img-fluid image1 rounded h-100" alt="Property Image">
+                    </div>
+                    <div class="col-6 h-100 mb-1">
+                        <div class="row">
+                            <img [src]="comProperty.images[1]" class="img-fluid image2 rounded mb-1" alt="Property Image">
+                        </div>
+                        <div class="row g-2 h-50">
+                            <div class="col-6 pe-1">
+                                <img [src]="comProperty.images[2]" class="img-fluid image3 rounded" alt="Property Image">
+                            </div>
+                            <div class="col-6">
+                                <img [src]="comProperty.images[3]" class="img-fluid image3 rounded" alt="Property Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Details -->
+            <div class="col-md-7 px-4">
+                <div class="property-icons">
+                    <span><i class="fa-solid fa-draw-polygon"></i>  {{ comProperty.carpetArea }} Sqft</span>
+                    <span><i class="fa-solid fa-shield"></i> Approved By {{ selectedProperty.authorityApproval }}</span>
+                </div>
+
+                <div class="row py-4">
+                    <div class="col-4 property-data py-3" *ngFor="let detail of loopData.slice(0,4)">
+                        <p>{{ detail.label }}</p>
+                        <h3>{{ detail.value }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mt-3">
+            <button class="btn btn-primary btn-custom" (click)="openChat()">
+                <i class="bi bi-chat"></i> Chat with Property Manager
+            </button>
+            <button class="btn btn-secondary btn-custom ms-4" (click)="openImagePopup()">
+                <i class="bi bi-images"></i> View All Images
+            </button><br>
+            <button class="btn btn-primary btn-custom" (click)="acceptRequest()">
+                 Accept
+            </button>
+            <button class="btn btn-danger btn-custom ms-4" (click)="rejectRequest()">
+                 Reject
+            </button>
+        </div>
+    </div>
+
+    <!-- Chat Box Component -->
+    <app-chat-box *ngIf="showChatBox" (closeChat)="closeChat()"></app-chat-box>
+
+    <!-- Image Popup Component -->
+    <app-image-popup 
+    *ngIf="showImagePopup" 
+    [showImagePopup]="showImagePopup"
+    [imageList]="comProperty.images"
+    [currentImageIndex]="currentImageIndex"
+    (closePopup)="closeImagePopup()">
+    </app-image-popup>
+
+
+
+    <div class="card mx-5 px-5">
+        <div class="more-details">
+            <h1 class="fs-2 pb-4">More Details</h1>
+            <table>
+                <tr *ngFor="let detail of loopData.slice(4)">
+                    <td>{{ detail.label }}</td>
+                    <th>{{ detail.value }}</th>
+                </tr>
+            </table>
+
+            <h4>Description:</h4>
+            <p class="pt-3">{{ comProperty.description }}</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- For Villas -->
+<div class="property_card p-5 bg-body-tertiary" *ngIf="selectedType==='villa'">
+    <div class="card main mx-5 px-5 py-4">
+        <h3 class="price-tag">₹{{ comProperty.price }}</h3>
+        <p class="property-title pb-2">{{ comProperty.type }} Villa for Sale in {{address.city}}, {{address.district}}</p>
 
         <div class="row h-100">
             <!-- Image Grid -->
@@ -55,7 +243,7 @@
             <button class="btn btn-primary btn-custom" (click)="acceptRequest()">
                 <i class="bi bi-chat"></i> Accept
             </button>
-            <button class="btn btn-secondary btn-custom ms-4" (click)="rejectRequest()">
+            <button class="btn btn-danger btn-custom ms-4" (click)="rejectRequest()">
                 <i class="bi bi-images"></i> Reject
             </button>
         </div>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { response } from 'express';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -144,11 +145,62 @@ export class PropertyService {
     ]
   }
 
+  USER_WEBURL:string="http://localhost:9091/user"
+
   APARTMENTS_WEBURL:string="http://localhost:9091/apartment";
   PLOTS_WEBURL:string="http://localhost:9091/plots";
   VILLAS_WEBURL:string="http://localhost:9091/villas";
 
   constructor(private httpClient:HttpClient) { }
+
+
+
+  getBuyerbyUserId(userId:number):Observable<any>{
+    return this.httpClient.get<any>(this.USER_WEBURL+"/get_buyer?userId="+userId);
+  }
+
+  getFavoratesOfBuyerInAprt(buyerId:number):Observable<any>{
+    return this.httpClient.get<any>(this.APARTMENTS_WEBURL+"/favFor/"+buyerId);
+  }
+  
+  getFavoratesOfBuyerInPlots(buyerId:number):Observable<any>{
+    return this.httpClient.get<any>(this.PLOTS_WEBURL+"/favFor/"+buyerId);
+  }
+
+  getFavoratesOfBuyerInVillas(buyerId:number):Observable<any>{
+    return this.httpClient.get<any>(this.VILLAS_WEBURL+"/favFor/"+buyerId);
+  }
+  getViewedbyBuyerInAprt(buyerId:number):Observable<any>{
+    return this.httpClient.get<any>(this.APARTMENTS_WEBURL+"/viewed/"+buyerId);
+  }
+  
+  getViewedbyBuyerInPlots(buyerId:number):Observable<any>{
+    return this.httpClient.get<any>(this.PLOTS_WEBURL+"/viewed/"+buyerId);
+  }
+
+  getViewedbyBuyerInVillas(buyerId:number):Observable<any>{
+    return this.httpClient.get<any>(this.VILLAS_WEBURL+"/viewed/"+buyerId);
+  }
+
+
+  addToAprtmntFavourate(apartmentId:number,buyerId:number):Observable<any>{
+    return this.httpClient.put(this.APARTMENTS_WEBURL+"/addToViewed?apartmentId="+apartmentId+"&buyerId="+buyerId,{response:'json'});
+  }
+  addToPlotFavourate(plotId:number,buyerId:number):Observable<any>{
+    return this.httpClient.put(this.PLOTS_WEBURL+"/addToViewed?plotId="+plotId+"&buyerId="+buyerId,{response:'json'});
+  }
+  addToVillaFavourate(idividualId:number,buyerId:number):Observable<any>{
+    return this.httpClient.put(this.VILLAS_WEBURL+"/addToViewed?idividualId="+idividualId+"&buyerId="+buyerId,{response:'json'});
+  }
+  addToAprtmntViewed(apartmentId:number,buyerId:number):Observable<any>{
+    return this.httpClient.put(this.APARTMENTS_WEBURL+"/addToViewed?apartmentId="+apartmentId+"&buyerId="+buyerId,{response:'json'});
+  }
+  addToPlotViewed(plotId:number,buyerId:number):Observable<any>{
+    return this.httpClient.put(this.PLOTS_WEBURL+"/addToViewed?plotId="+plotId+"&buyerId="+buyerId,{response:'json'});
+  }
+  addToVillaViewed(idividualId:number,buyerId:number):Observable<any>{
+    return this.httpClient.put(this.VILLAS_WEBURL+"/addToViewed?idividualId="+idividualId+"&buyerId="+buyerId,{response:'json'});
+  }
 
   addApartmentData(property:any):Observable<any>{
     return this.httpClient.post(this.APARTMENTS_WEBURL+"/add",property,{responseType:'json'});

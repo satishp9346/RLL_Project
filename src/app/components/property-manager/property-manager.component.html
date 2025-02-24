@@ -14,27 +14,27 @@
     <nav class="header">
         <div class="nav-content">
             <div class="nav-group">
-                <button class="btn btn-dark" (click)="setProperty()">
+                <!-- <button class="btn btn-dark" (click)="setProperty()">
                     <i class="bi bi-chat-dots"></i>
-                    Messages
+                    Messages -->
                     <!-- <span class="badge" *ngIf="pendingRequestsCount > 0">{{ pendingRequestsCount }}</span> -->
-                </button>
+                <!-- </button> -->
                 <button class="btn btn-dark" (click)="toggleRequestModal()">
                     <i class="fas fa-inbox"></i>
                     Requests
-                    <span class="badge" *ngIf="pendingRequestsCount > 0">{{ pendingRequestsCount }}</span>
+                    <span class="badge" *ngIf="pendingRequestsCount > 0"></span>
                 </button>
             </div>
             <div class="nav-group">
-                <button class="btn btn-dark">
+                <button class="btn btn-dark" routerLink="/dashboard/property_manager">
                     <i class="bi bi-house"></i>
                     Home
                 </button>
-                <button class="btn btn-dark">
+                <button class="btn btn-dark" (click)="showBuyers()">
                     <i class="fas fa-users"></i>
                     Buyers
                 </button>
-                <button class="btn btn-dark" (click)="sellers()">
+                <button class="btn btn-dark" (click)="showSellers()">
                     <i class="fas fa-handshake"></i>
                     Sellers
                 </button>

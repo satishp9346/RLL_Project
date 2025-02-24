@@ -27,11 +27,7 @@
   
             <div class="input-group">
               <label>Boundary Walls</label>
-              <select id="wall" name="wall" formControlName="boundaryWalls">
-                <option value="">Boundary Wall</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
+              <input type="number" formControlName="boundaryWalls" placeholder="Boundary Walls" required>
               <div *ngIf="formControls['boundaryWalls'].touched && formControls['boundaryWalls'].invalid">
                 <small class="error">Boundary wall is required</small>
               </div>
@@ -197,11 +193,11 @@
   
                 <div class="col-md-3">
                   <div class="form-floating">
-                    <input type="text" class="form-control" id="Village" formControlName="village"
-                      placeholder="village Name">
-                    <label><i class="bi bi-person me-2"></i>Village</label>
-                    <div *ngIf="formControls['village'].touched && formControls['village'].invalid">
-                      <small class="error">Provide village Name</small>
+                    <input type="text" class="form-control" id="city" formControlName="city"
+                      placeholder="city Name">
+                    <label><i class="bi bi-person me-2"></i>City</label>
+                    <div *ngIf="formControls['city'].touched && formControls['city'].invalid">
+                      <small class="error">Provide city Name</small>
                     </div>
                   </div>
                 </div>

@@ -34,6 +34,11 @@ import { ListAdminRequestsComponent } from './components/list-admin-requests/lis
 import { DefaultPageComponent } from './components/common-components/default-page/default-page.component';
 import { SellerListRequestsComponent } from './components/seller-list-requests/seller-list-requests.component';
 import { SellerRequestPropertyCardComponent } from './components/seller-request-property-card/seller-request-property-card.component';
+import { ShowBuyersComponent } from './components/common-components/show-buyers/show-buyers.component';
+import { ShowSellersComponent } from './components/common-components/show-sellers/show-sellers.component';
+import { ShowPropertyManagersComponent } from './components/common-components/show-property-managers/show-property-managers.component';
+import { BuyerViewedPropertiesComponent } from './components/buyer-viewed-properties/buyer-viewed-properties.component';
+import { BuyerFavouratePropertiesComponent } from './components/buyer-favourate-properties/buyer-favourate-properties.component';
 
 
 @NgModule({
@@ -65,7 +70,12 @@ import { SellerRequestPropertyCardComponent } from './components/seller-request-
     ListAdminRequestsComponent,
     DefaultPageComponent,
     SellerListRequestsComponent,
-    SellerRequestPropertyCardComponent
+    SellerRequestPropertyCardComponent,
+    ShowBuyersComponent,
+    ShowSellersComponent,
+    ShowPropertyManagersComponent,
+    BuyerViewedPropertiesComponent,
+    BuyerFavouratePropertiesComponent
   ],
   imports: [
     BrowserModule,

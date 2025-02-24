@@ -1,0 +1,78 @@
+<div class="prop-managers-main m-5">
+    <div class="card shadow-sm p-4 bg-light rounded position-relative">
+
+        <table class="table table-hover table-responsive">
+            <thead class="table-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let propManager of propertyManagerList">
+                    <td>{{propManager.ucd.firstName}}</td>
+                    <td>{{propManager.ucd.lastName}}</td>
+                    <td>{{propManager.user.email}}</td>
+                    <td>{{propManager.ucd.address.city}}, {{propManager.ucd.address.district}},
+                        {{propManager.ucd.address.state}}, {{propManager.ucd.address.pinCode}}</td>
+                    <td>
+                        <button class="btn btn-primary px-5 py-2" (click)="viewMore(propManager)">View
+                            More</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="pop-up" *ngIf="flag">
+    
+    <div class="card1">
+        <button class="close-btn" (click)="close()">
+            <i class="fas fa-times fs-4"></i>
+        </button>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>First Name</th>
+                    <td>{{propertyManager1.ucd.firstName}}</td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>{{propertyManager1.ucd.lastName}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{propertyManager1.user.email}}</td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>{{propertyManager1.ucd.age}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{propertyManager1.ucd.gender}}</td>
+                </tr>
+                <tr>
+                    <th>Mobile Number</th>
+                    <td>{{propertyManager1.ucd.mobileNo}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>
+                        {{propertyManager1.ucd.address.doorNum}},
+                        {{propertyManager1.ucd.address.street}},
+                        {{propertyManager1.ucd.address.city}},
+                        {{propertyManager1.ucd.address.district}},
+                        {{propertyManager1.ucd.address.state}},
+                        {{propertyManager1.ucd.address.country}},
+                        {{propertyManager1.ucd.address.pinCode}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

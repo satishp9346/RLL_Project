@@ -36,7 +36,7 @@ export class ApartmentFormComponent {
       developer: ['', Validators.required],
       carpetArea: ['', [Validators.required, Validators.pattern('^[0-9]+$')]], // Only numbers
       floorNo: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
-      price: ['', [Validators.required]], //only amount
+      price: ['', [Validators.required,Validators.pattern('^[0-9]+$')]], //only amount
       status: ['', Validators.required],
       facing: ['', Validators.required],
       furnishedStatus: ['', Validators.required],

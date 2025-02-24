@@ -31,7 +31,7 @@ export class VillasFormComponent {
       balconies:['',[Validators.required,Validators.pattern('^[0-9]+$')]],
       carpetArea: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       facing: ['', Validators.required],
-      price: ['', Validators.required],
+      price: ['', [Validators.required,Validators.pattern('^[0-9]+$')]],
       description: ['', Validators.required],
       status: ['', Validators.required],
       registrationCharges: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
@@ -41,7 +41,7 @@ export class VillasFormComponent {
       overlooking:['',Validators.required],
       images: ['', Validators.required],
    
-      doorNum:['',[Validators.required,Validators.pattern('^[0-9]+$')]],
+      doorNum:['',[Validators.required]],
       street:['', Validators.required],
       city:['', Validators.required],
       district:['', Validators.required],
@@ -99,15 +99,12 @@ export class VillasFormComponent {
           overlooking: formData.overlooking,
           status: formData.status,
           images: [
-            "https://newprojects.99acres.com/projects/av_bhat_developers_llp/a_v_anandam/images/x7ammu0_1722507771_508332469_optOrig.jpg",
-            "https://newprojects.99acres.com/projects/naiknavare_developers/naiknavare_eagles_nest/images/xidpomz_1714373386_488964160_optOrig.jpg",
-            "https://imagecdn.99acres.com/media1/27697/17/553957287O-1736483369547.jpg",
-            "https://imagecdn.99acres.com/media1/27697/17/553957293O-1736483369817.jpg",
-             "https://imagecdn.99acres.com/media1/27697/17/553957283O-1736483371668.jpg",
-              "https://imagecdn.99acres.com/media1/27697/17/553957317O-1736483349852.jpg",
-              "https://imagecdn.99acres.com/media1/27697/17/553957301O-1736483360460.jpg",
-             "https://imagecdn.99acres.com/media1/26562/1/531241477O-1731712021116.jpg"
-      
+            "https://imagecdn.99acres.com/media1/26887/18/537758635O-1734155353596.jpg",
+            "https://imagecdn.99acres.com/media1/26888/0/537760377O-1734155720973.jpg",
+            "https://imagecdn.99acres.com/media1/26888/0/537760647O-1734155828737.jpg",
+            "https://imagecdn.99acres.com/media1/26887/18/537758953O-1734155416616.jpg",
+            "https://imagecdn.99acres.com/media1/26888/0/537760897O-1734155886962.jpg",
+            "https://imagecdn.99acres.com/media1/26888/1/537761057O-1734155954271.jpg",
           ]
         },
         type: formData.type,

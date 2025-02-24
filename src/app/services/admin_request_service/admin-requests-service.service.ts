@@ -91,13 +91,17 @@ export class AdminRequestsServiceService {
       this.saveRequests();
     }
   }
-
-  deleteRequest(index: number): void {
-    if (index >= 0 && index < this.requests.length) {
-      this.requests.splice(index, 1);
-      this.saveRequests();
-    }
+  deleteRequest(propertyId: any): Observable<any> {
+    // const options = { body: property }; // Pass the property as the body inside options
+    return this.http.delete(`${this.apiUrl}/${propertyId}`);
   }
+
+  // deleteRequest(index: number): void {
+  //   if (index >= 0 && index < this.requests.length) {
+  //     this.requests.splice(index, 1);
+  //     this.saveRequests();
+  //   }
+  // }
 
   getRequestByIndex(index: number): any {
     if (index >= 0 && index < this.requests.length) {

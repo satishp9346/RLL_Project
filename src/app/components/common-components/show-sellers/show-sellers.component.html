@@ -1,0 +1,78 @@
+<div class="prop-managers-main m-5">
+    <div class="card shadow-sm p-4 bg-light rounded position-relative">
+
+        <table class="table table-hover table-responsive">
+            <thead class="table-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let seller of sellersList">
+                    <td>{{seller.userCommonDetails.firstName}}</td>
+                    <td>{{seller.userCommonDetails.lastName}}</td>
+                    <td>{{seller.user.email}}</td>
+                    <td>{{seller.userCommonDetails.address.city}}, {{seller.userCommonDetails.address.district}},
+                        {{seller.userCommonDetails.address.state}}, {{seller.userCommonDetails.address.pinCode}}</td>
+                    <td>
+                        <button class="btn btn-primary px-5 py-2" (click)="viewMore(seller)">View
+                            More</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="pop-up" *ngIf="flag">
+    
+    <div class="card1">
+        <button class="close-btn" (click)="close()">
+            <i class="fas fa-times fs-4"></i>
+        </button>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>First Name</th>
+                    <td>{{seller1.userCommonDetails.firstName}}</td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>{{seller1.userCommonDetails.lastName}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{seller1.user.email}}</td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>{{seller1.userCommonDetails.age}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{seller1.userCommonDetails.gender}}</td>
+                </tr>
+                <tr>
+                    <th>Mobile Number</th>
+                    <td>{{seller1.userCommonDetails.mobileNo}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>
+                        {{seller1.userCommonDetails.address.doorNum}},
+                        {{seller1.userCommonDetails.address.street}},
+                        {{seller1.userCommonDetails.address.city}},
+                        {{seller1.userCommonDetails.address.district}},
+                        {{seller1.userCommonDetails.address.state}},
+                        {{seller1.userCommonDetails.address.country}},
+                        {{seller1.userCommonDetails.address.pinCode}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

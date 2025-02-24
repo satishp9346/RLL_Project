@@ -1,0 +1,78 @@
+<div class="prop-managers-main m-5">
+    <div class="card shadow-sm p-4 bg-light rounded position-relative">
+
+        <table class="table table-hover table-responsive">
+            <thead class="table-dark">
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let buyer of buyersList">
+                    <td>{{buyer.userCommonDetails.firstName}}</td>
+                    <td>{{buyer.userCommonDetails.lastName}}</td>
+                    <td>{{buyer.user.email}}</td>
+                    <td>{{buyer.userCommonDetails.address.city}}, {{buyer.userCommonDetails.address.district}},
+                        {{buyer.userCommonDetails.address.state}}, {{buyer.userCommonDetails.address.pinCode}}</td>
+                    <td>
+                        <button class="btn btn-primary px-5 py-2" (click)="viewMore(buyer)">View
+                            More</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="pop-up" *ngIf="flag">
+    
+    <div class="card1">
+        <button class="close-btn" (click)="close()">
+            <i class="fas fa-times fs-4"></i>
+        </button>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>First Name</th>
+                    <td>{{buyer1.userCommonDetails.firstName}}</td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>{{buyer1.userCommonDetails.lastName}}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{buyer1.user.email}}</td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>{{buyer1.userCommonDetails.age}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{buyer1.userCommonDetails.gender}}</td>
+                </tr>
+                <tr>
+                    <th>Mobile Number</th>
+                    <td>{{buyer1.userCommonDetails.mobileNo}}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>
+                        {{buyer1.userCommonDetails.address.doorNum}},
+                        {{buyer1.userCommonDetails.address.street}},
+                        {{buyer1.userCommonDetails.address.city}},
+                        {{buyer1.userCommonDetails.address.district}},
+                        {{buyer1.userCommonDetails.address.state}},
+                        {{buyer1.userCommonDetails.address.country}},
+                        {{buyer1.userCommonDetails.address.pinCode}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

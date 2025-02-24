@@ -141,6 +141,15 @@ export class AdminComponent {
     }
     this.isRequestModalOpen = !this.isRequestModalOpen;
   }
+  showBuyers(){
+    this.r.navigate(["/dashboard/admin/list_buyers"]);
+  }
+  showSellers():void{
+    this.r.navigate(['/dashboard/admin/list_sellers']);
+  }
+  showPropertyManagers():void{
+    this.r.navigate(['/dashboard/admin/list_property_managers']);
+  }
 
   // updateUserData() {
   //   if (this.validateForm()) {

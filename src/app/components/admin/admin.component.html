@@ -21,19 +21,17 @@
         <button class="btn btn-dark" (click)="toggleRequestModal()">
           <i class="fas fa-inbox"></i>
           Requests
-          <span class="badge" *ngIf="pendingRequestsCount > 0">{{
-            pendingRequestsCount
-          }}</span>
+          <span class="badge" *ngIf="pendingRequestsCount > 0"></span>
         </button>
-        <button class="btn btn-dark">
+        <button class="btn btn-dark" (click)="showBuyers()">
           <i class="fas fa-users"></i>
           Buyers
         </button>
-        <button class="btn btn-dark" (click)="sellers()">
+        <button class="btn btn-dark" (click)="showSellers()">
           <i class="fas fa-handshake"></i>
           Sellers
         </button>
-        <button class="btn btn-dark">
+        <button class="btn btn-dark" (click)="showPropertyManagers()">
           <i class="fas fa-building"></i>
           Property Manager
         </button>
