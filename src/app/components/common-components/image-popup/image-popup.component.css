@@ -14,8 +14,8 @@
     border-radius: 10px;
 }
 .image{
-    width: 50vw;
-    height: 60vh;
+    width: 50vw !important;
+    height: 60vh !important;
 }
 
 .carousel-container {

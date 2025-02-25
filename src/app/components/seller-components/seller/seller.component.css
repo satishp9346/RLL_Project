@@ -1,0 +1,32 @@
+.navbar-nav .nav-item {
+  margin: 0 10px;
+}
+header {
+  background: url('https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg') center/cover no-repeat;
+}
+li{
+  cursor: pointer;
+}
+
+
+  .pop-up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.253);
+    z-index: 1000;
+  }
+  .popup-card{
+    width: 50vw;
+    padding: 30px;
+  }
+  .popup-card button{
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+  }

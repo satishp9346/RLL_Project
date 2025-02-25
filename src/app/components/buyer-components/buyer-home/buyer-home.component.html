@@ -1,7 +1,7 @@
 
 <!-- Container Section -->
 
-<div class="container-fluid p-0 my-5">
+<div class="container-fluid p-0 mt-3">
     <header class="hero-section text-white d-flex align-items-center" [ngStyle]="{'background-image': 'url(' + currentHeroImage + ')'}">
         <div class="container text-center">
           <h1>Let's Find A Home<br>That's Perfect For You</h1>
@@ -13,7 +13,7 @@
       <section class="gallery-section py-5 text-white">
         <div class="container">
           <div style="display: flex; flex-direction: row;justify-content: space-between;">
-            <h2 class="mb-4">The Best Properties in Los Angeles</h2>
+            <h2 class="mb-4">The Best Properties in India</h2>
            
           </div>
           <div class="row g-3">
@@ -39,30 +39,6 @@
               <img [src]="image" class="img-fluid rounded">
             </div>
           </div>
-        </div>
-      </section>
-    
-      <!-- More Properties -->
-      <section class="more-properties py-5">
-        <div class="container">
-          <h2 class="mb-4">The Best Properties in Los Angeles</h2>
-          <div class="row g-3">
-            <div class="col-md-4" *ngFor="let property of properties">
-              <div class="card shadow-sm">
-                <img [src]="property.image" class="card-img-top">
-                <div class="card-body">
-                  <span class="badge bg-primary">{{ property.type }}</span>
-                  <h5 class="card-title mt-2">{{ property.price }}</h5>
-                  <p class="text-muted">{{ property.location }}</p>
-                  <div class="d-flex justify-content-between text-muted">
-                    <span>{{ property.bedrooms }} bedroom</span>
-                    <span>{{ property.bathrooms }} bathroom</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <button class="btn btn-dark mt-4">View All Properties</button> -->
         </div>
       </section>
 </div>

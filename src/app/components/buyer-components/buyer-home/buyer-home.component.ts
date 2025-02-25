@@ -84,21 +84,21 @@ export class BuyerHomeComponent {
        text:'Find modern apartments with great amenities.',
        type:'apartment',
        btnText:'View Flats in Apartments',
-       image: 'assets/pexels-heyho-6585604.jpg'
+       image: 'https://images.thesqua.re/property/20240716-13400340S_2'
      },
      {
       title:'Plots',
       text:'Explore open land plots for construction.',
       type:'plots',
       btnText:'View Plots',
-      image: 'assets/pexels-heyho-6585604.jpg'
+      image: 'https://media.tatarealty.in/posts/December2022/blog_5_2.jpg'
     },
     {
       title:'Individual Houses / Villas',
       text:'Luxury villas and independent houses for sale.',
       type:'villa',
       btnText:'View Villas / Individual Houses',
-      image: 'assets/pexels-heyho-6585604.jpg'
+      image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fFZJTExBfGVufDB8fDB8fHww'
     }
     ]
 

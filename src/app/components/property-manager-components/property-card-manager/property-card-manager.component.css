@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.card {
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: white;
+}
+.image1{
+    height: 50vh !important;
+}
+.image2,.image3{
+    height: 24.5vh !important;
+}
+
+.property-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1b21279f;
+}
+.price-tag {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d9534f;
+    padding: 10px 0;
+}
+.property-icons{
+    background-color: lightcyan;
+    padding: 20px 0px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.property-icons span {
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    padding-right: 20px;
+    color: #555;
+}
+.property-icons i {
+    margin-right: 5px;
+    color: #007bff;
+}
+.property-data p{
+    font-size: 18px;
+}
+.property-data h3{
+    font-size: 18px;
+}
+.img-fluid{
+    height: 100%;
+}
+.btn-custom {
+    width: 30%;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 5px;
+    padding: 10px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+td {
+    /* font-weight: bold; */
+    width: 20%;
+    padding: 8px;
+    font-size: 18px;
+    text-align: left;
+}
+th {
+    text-align: left;
+    font-weight: 500;
+    padding: 8px;
+    color: #444;
+}
+h1, h4 {
+    color: #2c3e50;
+}
+p {
+    color: #555;
+    line-height: 1.5;
+}

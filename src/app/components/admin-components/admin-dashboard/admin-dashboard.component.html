@@ -1,0 +1,41 @@
+<div class="container-fluid p-0 mt-3">
+    <header class="hero-section text-white d-flex align-items-center" [ngStyle]="{'background-image': 'url(' + currentHeroImage + ')'}">
+        <div class="container text-center">
+          <h1>Let's Find A Home<br>That's Perfect For You</h1>
+    
+        </div>
+      </header>
+    
+      <!-- Property Gallery -->
+      <section class="gallery-section py-5 text-white">
+        <div class="container">
+          <div style="display: flex; flex-direction: row;justify-content: space-between;">
+            <h2 class="mb-4">The Best Properties in India</h2>
+           
+          </div>
+          <div class="row g-3">
+            <div class="col-md-4" *ngFor="let property of properties2">
+              <div class="card shadow-sm">
+                <img [src]="property.image" class="card-img-top">
+                <div class="card-body">
+                  <!-- <span class="badge bg-primary">{{ property.title }}</span> -->
+                  <h5 class="card-title mt-2">{{ property.title }}</h5>
+                  <p class="text-muted">{{ property.text }}</p>
+                  <button (click)="viewPropertList()" class="btn btn-primary">{{property.btnText}}</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="gallery-section py-5 text-white">
+        <div class="container">
+          <h2 class="mb-4">Property Gallery</h2>
+          <div class="row g-3">
+            <div class="col-md-4" *ngFor="let image of galleryImages">
+              <img [src]="image" class="img-fluid rounded">
+            </div>
+          </div>
+        </div>
+      </section>
+</div>

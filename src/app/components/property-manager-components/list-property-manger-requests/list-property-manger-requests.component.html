@@ -1,0 +1,140 @@
+<div class="container py-4">
+    <div >
+        <div class="card p-3 mb-4" *ngFor="let property of requests">
+            <div class="row h-100">
+                <!-- Image Grid -->
+                <div class="col-md-5 h-100">
+                    <div class="row g-2 h-100">
+                        <div class="col-6 pe-1">
+                            <img [src]="property.commonPropertyDetails.images[0]" class="img-fluid rounded h-100"
+                                alt="Property Image">
+                        </div>
+                        <div class="col-6 h-100">
+                            <div class="row  h-50 mb-1">
+                                <img [src]="property.commonPropertyDetails.images[1]" class="img-fluid rounded mb-1"
+                                    alt="Property Image">
+                            </div>
+                            <div class="row g-2 h-50">
+                                <div class="col-6 pe-1">
+                                    <img [src]="property.commonPropertyDetails.images[2]" class="img-fluid rounded"
+                                        alt="Property Image">
+                                </div>
+                                <div class="col-6">
+                                    <img [src]="property.commonPropertyDetails.images[3]" class="img-fluid rounded"
+                                        alt="Property Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Details -->
+                <div class="col-md-7 px-4">
+                    <div class="property-icons" *ngIf="property.propertyType==='apartment'|| property.propertyType==='villa'">
+                        <span><i class="fas fa-bed"></i> {{ property.type }}</span>
+                        <span><i class="fas fa-bath"></i> {{ property.baths }} Baths</span>
+                        <span><i class="fas fa-couch"></i> {{ property.furnishedStatus }}</span>
+                        <span><i class="fas fa-building"></i> {{ property.balconies }} Balconies</span>
+                    </div>
+                    <div class="property-icons" *ngIf="property.propertyType==='plots'">
+                        <span><i class="fa-solid fa-draw-polygon"></i> {{ property.commonPropertyDetails.carpetArea }} Sqft</span>
+                        <span><i class="fa-solid fa-shield"></i> Approved By {{ property.authorityApproval }} </span>
+                    </div>
+
+                    <div class="property-data py-4" *ngIf="property.propertyType==='apartment'">
+                        <p>{{property.type}} Flat For Sale in {{property.commonPropertyDetails.address.city}},
+                            {{property.commonPropertyDetails.address.district}}</p>
+                        <p>$ {{property.commonPropertyDetails.price}}</p>
+                        <p>{{property.commonPropertyDetails.facing}}</p>
+                        <p>{{property.furnishedStatus}}</p>
+                    </div>
+                    <div class="property-data py-4" *ngIf="property.propertyType==='plots'">
+                        <p>Plot For Sale in {{property.commonPropertyDetails.address.city}},
+                            {{property.commonPropertyDetails.address.district}}</p>
+                        <p>$ {{property.commonPropertyDetails.price}}.00</p>
+                        <p>{{property.commonPropertyDetails.facing}} Facing</p>
+                    </div>
+                    <div class="property-data py-4" *ngIf="property.propertyType==='villa'">
+                        <p>{{property.type}} Villa For Sale in {{property.commonPropertyDetails.address.city}},
+                            {{property.commonPropertyDetails.address.district}}</p>
+                        <p>$ {{property.commonPropertyDetails.price}}</p>
+                        <p>{{property.commonPropertyDetails.facing}}</p>
+                        <p>{{property.furnishedStatus}}</p>
+                    </div>
+                    <button class="btn btn-primary" (click)="viewMore(property)">View More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container py-4">
+    <div *ngIf="buyRequestData!==[]">
+        <div class="card p-3 mb-4" *ngFor="let property of buyRequestData">
+            <div class="row h-100">
+                <!-- Image Grid -->
+                <div class="col-md-5 h-100">
+                    <div class="row g-2 h-100">
+                        <div class="col-6 pe-1">
+                            <img [src]="property.commonPropertyDetails.images[0]" class="img-fluid rounded h-100"
+                                alt="Property Image">
+                        </div>
+                        <div class="col-6 h-100">
+                            <div class="row  h-50 mb-1">
+                                <img [src]="property.commonPropertyDetails.images[1]" class="img-fluid rounded mb-1"
+                                    alt="Property Image">
+                            </div>
+                            <div class="row g-2 h-50">
+                                <div class="col-6 pe-1">
+                                    <img [src]="property.commonPropertyDetails.images[2]" class="img-fluid rounded"
+                                        alt="Property Image">
+                                </div>
+                                <div class="col-6">
+                                    <img [src]="property.commonPropertyDetails.images[3]" class="img-fluid rounded"
+                                        alt="Property Image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Details -->
+                <div class="col-md-7 px-4">
+                    <div class="property-icons" *ngIf="property.propertyType==='apartment'|| property.propertyType==='villa'">
+                        <span><i class="fas fa-bed"></i> {{ property.type }}</span>
+                        <span><i class="fas fa-bath"></i> {{ property.baths }} Baths</span>
+                        <span><i class="fas fa-couch"></i> {{ property.furnishedStatus }}</span>
+                        <span><i class="fas fa-building"></i> {{ property.balconies }} Balconies</span>
+                    </div>
+                    <div class="property-icons" *ngIf="property.propertyType==='plots'">
+                        <span><i class="fa-solid fa-draw-polygon"></i> {{ property.commonPropertyDetails.carpetArea }} Sqft</span>
+                        <span><i class="fa-solid fa-shield"></i> Approved By {{ property.authorityApproval }} </span>
+                    </div>
+
+                    <div class="property-data py-4" *ngIf="property.propertyType==='apartment'">
+                        <p>{{property.type}} Flat For Sale in {{property.commonPropertyDetails.address.city}},
+                            {{property.commonPropertyDetails.address.district}}</p>
+                        <p>$ {{property.commonPropertyDetails.price}}</p>
+                        <p>{{property.commonPropertyDetails.facing}}</p>
+                        <p>{{property.furnishedStatus}}</p>
+                    </div>
+                    <div class="property-data py-4" *ngIf="property.propertyType==='plots'">
+                        <p>Plot For Sale in {{property.commonPropertyDetails.address.city}},
+                            {{property.commonPropertyDetails.address.district}}</p>
+                        <p>$ {{property.commonPropertyDetails.price}}.00</p>
+                        <p>{{property.commonPropertyDetails.facing}} Facing</p>
+                    </div>
+                    <div class="property-data py-4" *ngIf="property.propertyType==='villa'">
+                        <p>{{property.type}} Villa For Sale in {{property.commonPropertyDetails.address.city}},
+                            {{property.commonPropertyDetails.address.district}}</p>
+                        <p>$ {{property.commonPropertyDetails.price}}</p>
+                        <p>{{property.commonPropertyDetails.facing}}</p>
+                        <p>{{property.furnishedStatus}}</p>
+                    </div>
+                    <button class="btn btn-success" (click)="sellProperty(property)">Sell Property</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
