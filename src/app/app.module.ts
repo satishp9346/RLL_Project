@@ -25,7 +25,7 @@ import { PlotFormComponent } from './components/seller-components/plot-form/plot
 import { VillasFormComponent } from './components/seller-components/villas-form/villas-form.component';
 import { CommonDashboardComponent } from './components/common-components/common-dashboard/common-dashboard.component';
 import { PropertyService } from './services/property_service/property.service';
-import { ApartmentsComponent } from './components/apartments/apartments.component';
+import { ApartmentsComponent } from './components/buyer-components/apartments/apartments.component';
 import { ListPropertyMangersComponent } from './components/common-components/list-property-mangers/list-property-mangers.component';
 import { ListPropertyMangerRequestsComponent } from './components/property-manager-components/list-property-manger-requests/list-property-manger-requests.component';
 import { PropertyCardManagerComponent } from './components/property-manager-components/property-card-manager/property-card-manager.component';
@@ -42,6 +42,8 @@ import { BuyerFavouratePropertiesComponent } from './components/buyer-components
 import { CommonPropertyListComponent } from './components/common-components/common-property-list/common-property-list.component';
 import { CommonPropertyCardComponent } from './components/common-components/common-property-card/common-property-card.component';
 import { AdminDashboardComponent } from './components/admin-components/admin-dashboard/admin-dashboard.component';
+import { BuyerSoldComponent } from './components/buyer-components/buyer-sold/buyer-sold.component';
+import { BuyerBoughtViewCardComponent } from './components/buyer-components/buyer-bought-view-card/buyer-bought-view-card.component';
 
 
 @NgModule({
@@ -81,7 +83,9 @@ import { AdminDashboardComponent } from './components/admin-components/admin-das
     BuyerFavouratePropertiesComponent,
     CommonPropertyListComponent,
     CommonPropertyCardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    BuyerSoldComponent,
+    BuyerBoughtViewCardComponent
   ],
   imports: [
     BrowserModule,

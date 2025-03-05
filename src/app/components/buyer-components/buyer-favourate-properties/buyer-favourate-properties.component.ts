@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { BuyerRequestService } from 'src/app/services/buyer-service/buyer-request.service';
 import { PropertyService } from 'src/app/services/property_service/property.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class BuyerFavouratePropertiesComponent {
   plotsData:any[]=[];
   villasData:any[]=[];
 
-  constructor(private propService:PropertyService,private router:Router){}
+  constructor(private propService:PropertyService,private router:Router,private buyerService:BuyerRequestService){}
 
   ngOnInit(){
     const profile = sessionStorage.getItem('profile');
@@ -42,7 +43,10 @@ export class BuyerFavouratePropertiesComponent {
 
   viewMore(proepety:any,type:string){
     sessionStorage.setItem("selectedType",type);
-    this.router.navigate(['/dashboard/buyer/property_card']);
+    this.buyerService.setRequestData(proepety).subscribe((data)=>{
+      console.log(data);
+      this.router.navigate(['/dashboard/buyer/property_card']);
+    });
   }
 
 }

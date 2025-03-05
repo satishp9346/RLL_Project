@@ -154,7 +154,18 @@ export class PropertyService {
   constructor(private httpClient:HttpClient) { }
 
 
+  // http://localhost:9091/apartment/sold?buyerId=1
 
+  getSoldDataofAprt(buyerId:number):Observable<any>{
+    return this.httpClient.get<any>(this.APARTMENTS_WEBURL+"/sold?buyerId="+buyerId);
+  }
+
+  getSoldDataofPlots(buyerId:number):Observable<any>{
+    return this.httpClient.get<any>(this.PLOTS_WEBURL+"/sold?buyerId="+buyerId);
+  }
+  getSoldDataofVillas(buyerId:number):Observable<any>{
+    return this.httpClient.get<any>(this.VILLAS_WEBURL+"/sold?buyerId="+buyerId);
+  }
   getBuyerbyUserId(userId:number):Observable<any>{
     return this.httpClient.get<any>(this.USER_WEBURL+"/get_buyer?userId="+userId);
   }
@@ -184,13 +195,13 @@ export class PropertyService {
 
 
   addToAprtmntFavourate(apartmentId:number,buyerId:number):Observable<any>{
-    return this.httpClient.put(this.APARTMENTS_WEBURL+"/addToViewed?apartmentId="+apartmentId+"&buyerId="+buyerId,{response:'json'});
+    return this.httpClient.put(this.APARTMENTS_WEBURL+"/addToFav?apartmentId="+apartmentId+"&buyerId="+buyerId,{response:'json'});
   }
   addToPlotFavourate(plotId:number,buyerId:number):Observable<any>{
-    return this.httpClient.put(this.PLOTS_WEBURL+"/addToViewed?plotId="+plotId+"&buyerId="+buyerId,{response:'json'});
+    return this.httpClient.put(this.PLOTS_WEBURL+"/addToFav?plotId="+plotId+"&buyerId="+buyerId,{response:'json'});
   }
   addToVillaFavourate(idividualId:number,buyerId:number):Observable<any>{
-    return this.httpClient.put(this.VILLAS_WEBURL+"/addToViewed?idividualId="+idividualId+"&buyerId="+buyerId,{response:'json'});
+    return this.httpClient.put(this.VILLAS_WEBURL+"/addToFav?idividualId="+idividualId+"&buyerId="+buyerId,{response:'json'});
   }
   addToAprtmntViewed(apartmentId:number,buyerId:number):Observable<any>{
     return this.httpClient.put(this.APARTMENTS_WEBURL+"/addToViewed?apartmentId="+apartmentId+"&buyerId="+buyerId,{response:'json'});

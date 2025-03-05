@@ -33,5 +33,8 @@ export class BuyerComponent {
   favourate(){
     this.router.navigate(['/dashboard/buyer/favourite']);
   }
+  buyerBought(){
+  this.router.navigate(['/dashboard/buyer/buyer_bought']);
+  }
   
 }

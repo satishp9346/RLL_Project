@@ -7,12 +7,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
- constructor(private router:Router){
-    
+ 
+
+  dynamicPart:any[];
+  constructor(private router:Router){
+
   }
 
   ngOnInit() {
-    
+    this.dynamicPart=window.location.href.split("/");
     setInterval(() => {
       this.currentImageIndex = (this.currentImageIndex + 1) % this.heroImages.length;
       this.currentHeroImage = this.heroImages[this.currentImageIndex];
@@ -20,11 +23,7 @@ export class AdminDashboardComponent {
   }
 
   viewPropertList():void{
-    // console.log(redirect+"  "+selectedProperty);
-    // localStorage.setItem("selectedType",selectedProperty);
-    // this.propertyService.setSelectedType(selectedProperty);
-    // this.router.navigate([`${redirect}`]);
-    this.router.navigate(['/dashboard/admin/common_property_list']);
+    this.router.navigate([`/dashboard/${this.dynamicPart[this.dynamicPart.length-1]}/common_property_list`]);
   }
 
   
@@ -69,7 +68,7 @@ export class AdminDashboardComponent {
       text:'Luxury villas and independent houses for sale.',
       type:'villa',
       btnText:'View Villas / Individual Houses',
-      image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fFZJTExBfGVufDB8fDB8fHww'
+      image: 'https://media.istockphoto.com/id/506903162/photo/luxurious-villa-with-pool.jpg?s=612x612&w=0&k=20&c=Ek2P0DQ9nHQero4m9mdDyCVMVq3TLnXigxNPcZbgX2E='
     }
     ]
 

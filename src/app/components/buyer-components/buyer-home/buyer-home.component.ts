@@ -98,7 +98,7 @@ export class BuyerHomeComponent {
       text:'Luxury villas and independent houses for sale.',
       type:'villa',
       btnText:'View Villas / Individual Houses',
-      image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fFZJTExBfGVufDB8fDB8fHww'
+      image: 'https://media.istockphoto.com/id/506903162/photo/luxurious-villa-with-pool.jpg?s=612x612&w=0&k=20&c=Ek2P0DQ9nHQero4m9mdDyCVMVq3TLnXigxNPcZbgX2E='
     }
     ]
 

@@ -1,29 +1,34 @@
 {
   "request": {
     "plotId": 1,
-    "authorityApproval": "GHMC",
+    "authorityApproval": "hghfghfghfg",
     "floorsAllowed": 5,
-    "noOfOpenSides": 3,
-    "boundaryWalls": 2,
-    "viwedBy": [],
-    "favFor": [],
+    "noOfOpenSides": 5,
+    "boundaryWalls": 7,
+    "viwedBy": [
+      1,
+      1
+    ],
+    "favFor": [
+      1
+    ],
     "seller": {
       "sellerId": 1,
       "userCommonDetails": {
         "userComId": 2,
-        "firstName": "Raju",
-        "lastName": "Kumar",
+        "firstName": "Divya",
+        "lastName": "Dharti",
         "gender": "male",
-        "age": 22,
-        "mobileNo": "9848032194",
+        "age": 27,
+        "mobileNo": "9848032189",
         "address": {
           "addressId": 2,
           "doorNum": "100/70",
           "street": "ramalayam street",
           "city": "Guntur",
-          "district": "Dharwad",
+          "district": "Hyderabad",
           "pinCode": "5232601",
-          "state": "Tamil Nadu",
+          "state": "Telangana",
           "country": "India"
         }
       },
@@ -31,49 +36,49 @@
         "propManagerid": 1,
         "ucd": {
           "userComId": 3,
-          "firstName": "Pavan",
-          "lastName": "Kumar",
+          "firstName": "Gopi",
+          "lastName": "Krishna",
           "gender": "male",
           "age": 22,
-          "mobileNo": "8965656565",
+          "mobileNo": "9848054191",
           "address": {
             "addressId": 3,
             "doorNum": "100/70",
-            "street": "sfdsdfd",
+            "street": "eretere",
             "city": "Guntur",
-            "district": "Dharwad",
+            "district": "Amarvati",
             "pinCode": "5232601",
-            "state": "Telangana",
+            "state": "Andhra Pradesh",
             "country": "India"
           }
         },
         "user": {
           "userId": 3,
-          "email": "pavan@gmail.com",
-          "password": "pavan@123",
+          "email": "gopi@gmail.com",
+          "password": "Gopi@123",
           "role": "PROPERTYMANAGER"
         }
       },
       "user": {
         "userId": 2,
-        "email": "raju@gmail.com",
-        "password": "raju@123",
+        "email": "divya@gmail.com",
+        "password": "Divya@123",
         "role": "SELLER"
       }
     },
     "buyer": null,
     "commPropDetails": {
       "cpdId": 1,
-      "carpetArea": 1233423,
+      "carpetArea": 1234,
       "facing": "north",
-      "price": 4354565,
-      "description": "fgdfgdfvkndjknvjdjkjd",
+      "price": 565656,
+      "description": "gfhcfghnvfghfhfdghfgfh",
       "status": "ready",
-      "registrationCharges": "32243543",
-      "bookingAmount": "45645675",
-      "transactionType": "resale",
-      "developer": "Chandu Developers",
-      "overlooking": "near to main road",
+      "registrationCharges": "65656",
+      "bookingAmount": "565656",
+      "transactionType": "new property",
+      "developer": "hfgfgjhfg",
+      "overlooking": "ghfhghgffghjfgh",
       "soldStatus": "unsold",
       "images": [
         "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2024/12/02/Project-Photo-3-Global-City-VI-Hyderabad-5425065_900_1200_0_320.jpg",
@@ -83,13 +88,13 @@
         "https://img.staticmb.com/mbimages/project/Photo_h0_w320/2024/12/02/Project-Photo-6-Global-City-VI-Hyderabad-5425065_777_1280_0_320.jpg"
       ],
       "address": {
-        "addressId": 4,
+        "addressId": 7,
         "doorNum": "1-23A",
         "street": "ramalayam street",
         "city": "Guntur",
         "district": "Amarvati",
         "pinCode": "523260",
-        "state": "Ap",
+        "state": "Ka",
         "country": "India"
       }
     }

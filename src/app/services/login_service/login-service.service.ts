@@ -14,10 +14,10 @@ export class LoginServiceService {
   checkUser(email:string,pwd:string):Observable<any>{
     return this.httpClient.get<any>(RealEstateWebUrl.LOGIN_WEBURL+"?email="+email+"&password="+pwd);
   }
-  addUser(puser:UserResponse):Observable<any>{
+  addUser(puser:any):Observable<any>{
     return this.httpClient.post(RealEstateWebUrl.LOGIN_WEBURL+"/add",puser,{responseType:'json'});
   }
-  updateUser(pUser:UserResponse):Observable<any>{
+  updateUser(pUser:any):Observable<any>{
     return this.httpClient.put(RealEstateWebUrl.LOGIN_WEBURL+"/update",pUser,{responseType:'json'});
   }
 }

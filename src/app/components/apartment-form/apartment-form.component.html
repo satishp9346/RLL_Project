@@ -269,7 +269,7 @@
                                     <input type="text" class="form-control" id="Door" formControlName="door"
                                         placeholder="Door">
                                     <label><i class="bi bi-door-open"></i>Door No</label>
-                                    <div *ngIf="formControls['door'].touched && formControls['street'].invalid">
+                                    <div *ngIf="formControls['door'].touched && formControls['door'].invalid">
                                         <small class="error">Provide Door Number</small>
                                     </div>
                                 </div>

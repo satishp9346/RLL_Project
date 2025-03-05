@@ -5,7 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BuyerComponent } from './components/buyer-components/buyer/buyer.component';
 import { BuyerHomeComponent } from './components/buyer-components/buyer-home/buyer-home.component';
-import { ApartmentsComponent } from './components/apartments/apartments.component';
+import { ApartmentsComponent } from './components/buyer-components/apartments/apartments.component';
 import { PlotsComponent } from './components/plots/plots.component';
 import { IndividualHousesComponent } from './components/individual-houses/individual-houses.component';
 import { SellerComponent } from './components/seller-components/seller/seller.component';
@@ -32,6 +32,8 @@ import { BuyerViewedPropertiesComponent } from './components/buyer-components/bu
 import { CommonPropertyListComponent } from './components/common-components/common-property-list/common-property-list.component';
 import { CommonPropertyCardComponent } from './components/common-components/common-property-card/common-property-card.component';
 import { AdminDashboardComponent } from './components/admin-components/admin-dashboard/admin-dashboard.component';
+import { BuyerSoldComponent } from './components/buyer-components/buyer-sold/buyer-sold.component';
+import { BuyerBoughtViewCardComponent } from './components/buyer-components/buyer-bought-view-card/buyer-bought-view-card.component';
 
 const routes: Routes = [
   {path:'',component:CommonDashboardComponent},
@@ -72,6 +74,8 @@ const routes: Routes = [
           {path:'favourite',component:BuyerFavouratePropertiesComponent},
           {path:'viewed',component:BuyerViewedPropertiesComponent},
           {path:'list_property_managers',component:ShowPropertyManagersComponent},
+          {path:'buyer_bought',component:BuyerSoldComponent},
+          {path:'buyer_bought_view',component:BuyerBoughtViewCardComponent}
         ]
       },
       {

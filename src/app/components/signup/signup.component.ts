@@ -32,8 +32,13 @@ export class SignupComponent {
       gender: ['', Validators.required],
       age:['',[Validators.required]], 
       phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]], 
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      reEnterPassword: ['', [Validators.required]],
+      // password: ['', [Validators.required,Validators.minLength(6),Validators.maxLength(10),Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])[A-Za-z\d\W_]{8,}$")]],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")
+    ]],
+      //reEnterPassword: ['', [Validators.required]],
       doorNo: ['', Validators.required], 
       street: ['', Validators.required], 
       city: ['', Validators.required], 
@@ -119,6 +124,29 @@ export class SignupComponent {
           new userCommonDetails(temp.firstName,temp.lastName,temp.gender,temp.age,temp.phoneNumber,
             new Address(temp.doorNo,temp.street,temp.city,temp.district,temp.state,temp.pinCode,temp.country)
           ));
+        // let userResponse={
+        //   "user": {
+        //     "email": temp.email,
+        //     "password": temp.password,
+        //     "role":temp.userType.toUpperCase()
+        //   },
+        //   "userCommonDetails": {
+        //     "firstName": temp.firstName,
+        //     "lastName": temp.lastName,
+        //     "gender": temp.gender,
+        //     "age": temp.age,
+        //     "mobileNo": temp.phoneNumber,
+        //     "address": {
+        //       "doorNum": temp.doorNo,
+        //       "street": temp.street,
+        //       "city": temp.city,
+        //       "district": temp.district,
+        //       "pinCode": temp.pinCode,
+        //       "state": temp.state,
+        //       "country": temp.country
+        //     }
+        //   }
+        // }
           console.log("===>"+JSON.stringify(userResponse));
         this.loginService.addUser(userResponse).subscribe((user) => {
           if (user != null){

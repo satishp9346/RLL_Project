@@ -1,7 +1,7 @@
 <div class="container py-4">
     
 
-    <div *ngIf="apartmentsData != []">
+    <div *ngIf="selectedType==='apartment'">
         <div class="card p-3 mb-4" *ngFor="let property of apartmentsData">
             <div class="row h-100">
                 <!-- Image Grid -->
@@ -46,13 +46,13 @@
                         <p>{{property.commPropDetails.facing}}</p>
                         <p>{{property.furnishedStatus}}</p>
                     </div>
-                    <button class="btn btn-primary" (click)="viewMore(property,'apartment')">View More</button>
+                    <button class="btn btn-primary" (click)="viewMore(property)">View More</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div *ngIf="plotsData != []">
+    <div *ngIf="selectedType==='plots'">
         <div class="card p-3 mb-4" *ngFor="let property of plotsData">
             <div class="row h-100">
                 <!-- Image Grid -->
@@ -94,13 +94,13 @@
                         <p>$ {{property.commPropDetails.price}}.00</p>
                         <p>{{property.commPropDetails.facing}} Facing</p>
                     </div>
-                    <button class="btn btn-primary" (click)="viewMore(property,'plots')">View More</button>
+                    <button class="btn btn-primary" (click)="viewMore(property)">View More</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div *ngIf="villasData != []">
+    <div *ngIf="selectedType==='villa'">
         <div class="card p-3 mb-4" *ngFor="let property of villasData">
             <div class="row h-100">
                 <!-- Image Grid -->
@@ -145,7 +145,7 @@
                         <p>{{property.commPropDetails.facing}}</p>
                         <p>{{property.furnishedStatus}}</p>
                     </div>
-                    <button class="btn btn-primary" (click)="viewMore(property,'villa')">View More</button>
+                    <button class="btn btn-primary" (click)="viewMore(property)">View More</button>
                 </div>
             </div>
         </div>

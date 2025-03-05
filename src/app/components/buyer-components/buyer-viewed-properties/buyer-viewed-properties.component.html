@@ -1,42 +1,5 @@
 <div class="container py-4">
-    <div class="container my-5">
-        <div class="input-group shadow-sm rounded">
-            <!-- Location Input -->
-            <span class="input-group-text bg-light"><i class="bi bi-geo-alt"></i></span>
-            <input type="text" class="form-control border-end-0" placeholder="Enter city, area...">
-
-            <!-- Divider -->
-            <span class="input-group-text bg-light border-start border-end">|</span>
-
-            <!-- Property Type Dropdown -->
-            <span class="input-group-text bg-light"><i class="bi bi-house-door"></i></span>
-            <select class="form-select border-end-0">
-                <option selected disabled>Type of Flat</option>
-                <option value="1bhk">1 BHK</option>
-                <option value="2bhk">2 BHK</option>
-                <option value="3bhk">3 BHK</option>
-                <option value="villa">Villa</option>
-            </select>
-
-            <!-- Divider -->
-            <span class="input-group-text bg-light border-start border-end">|</span>
-
-            <!-- Price Range Dropdown -->
-            <!-- <span class="input-group-text bg-light"><i class="bi bi-cash-stack"></i></span>
-            <select class="form-select border-end-0">
-                <option selected disabled>Select Price Range</option>
-                <option value="0">Below $50,000</option>
-                <option value="1">$50,000 - $100,000</option>
-                <option value="2">$100,000 - $500,000</option>
-                <option value="3">Above $500,000</option>
-            </select> -->
-
-            <!-- Search Button -->
-            <button class="btn btn-primary" type="button">
-                <i class="bi bi-search"></i> Search
-            </button>
-        </div>
-    </div>
+    
 
     <div *ngIf="apartmentsData != []">
         <div class="card p-3 mb-4" *ngFor="let property of apartmentsData">
